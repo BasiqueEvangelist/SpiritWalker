@@ -14,6 +14,6 @@ public abstract class ClientPlayerEntityMixin {
         if ((Object) this instanceof FakeCameraEntity)
             return true;
 
-        return false;
+        return orig;
     }
 }

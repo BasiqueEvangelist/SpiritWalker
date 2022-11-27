@@ -33,6 +33,7 @@ dependencies {
 
     implementation annotationProcessor(include("com.github.LlamaLad7:MixinExtras:0.1.1"))
 
+    modLocalRuntime "maven.modrinth:idwtialsimmoedm:0.2.0+1.19"
     modLocalRuntime "maven.modrinth:lazydfu:0.1.3"
 }
 

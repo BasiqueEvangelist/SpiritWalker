@@ -1,5 +1,6 @@
 {
     "effect.potion-of-disassociation.disassociation": "Disassociation",
+    "effect.potion-of-disassociation.disassociation.desc": "Temporarily removes you from your body",
     "item.minecraft.potion.effect.disassociation": "Potion of Disassociation",
     "item.minecraft.splash_potion.effect.disassociation": "Splash Potion of Disassociation",
     "item.minecraft.lingering_potion.effect.disassociation": "Lingering Potion of Disassociation",
