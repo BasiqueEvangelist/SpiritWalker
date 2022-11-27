@@ -1,0 +1,19 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "me.basiqueevangelist.potionofdisassociation.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "LivingEntityMixin"
+    ],
+    "client": [
+        "client.ClientPlayerEntityMixin",
+        "client.GameRendererMixin",
+        "client.InGameHudMixin",
+        "client.MouseMixin",
+        "client.WorldRendererMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

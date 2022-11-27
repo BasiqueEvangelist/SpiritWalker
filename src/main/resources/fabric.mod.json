@@ -1,0 +1,35 @@
+{
+    "schemaVersion": 1,
+    "id": "potion-of-disassociation",
+    "version": "${version}",
+    "name": "Potion Of Disassociation",
+    "description": "",
+    "authors": [
+        "BasiqueEvangelist"
+    ],
+    "contact": {
+        "repo": "https://github.com/BasiqueEvangelist/PotionOfDisassociation"
+    },
+    "license": "LGPL-3.0",
+    "icon": "assets/potion-of-disassociation/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "client": [
+            "me.basiqueevangelist.potionofdisassociation.client.PotionOfDisassociationClient"
+        ],
+        "main": [
+            "me.basiqueevangelist.potionofdisassociation.PotionOfDisassociation"
+        ],
+        "preLaunch": [
+            "me.basiqueevangelist.potionofdisassociation.PotionOfDisassociationPrelaunch"
+        ]
+    },
+    "mixins": [
+        "potion-of-disassociation.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14.10",
+        "fabric": "*",
+        "minecraft": "1.19.2"
+    }
+}
