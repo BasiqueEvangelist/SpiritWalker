@@ -1,8 +1,8 @@
 {
-    "effect.potion-of-dissociation.dissociation": "Disassociation",
+    "effect.potion-of-dissociation.dissociation": "Dissociation",
     "effect.potion-of-dissociation.dissociation.desc": "Temporarily removes you from your body",
-    "item.minecraft.potion.effect.dissociation": "Potion of Disassociation",
-    "item.minecraft.splash_potion.effect.dissociation": "Splash Potion of Disassociation",
-    "item.minecraft.lingering_potion.effect.dissociation": "Lingering Potion of Disassociation",
-    "item.minecraft.tipped_arrow.effect.dissociation": "Arrow of Disassociation"
+    "item.minecraft.potion.effect.dissociation": "Potion of Dissociation",
+    "item.minecraft.splash_potion.effect.dissociation": "Splash Potion of Dissociation",
+    "item.minecraft.lingering_potion.effect.dissociation": "Lingering Potion of Dissociation",
+    "item.minecraft.tipped_arrow.effect.dissociation": "Arrow of Dissociation"
 }
