@@ -1,4 +1,4 @@
-package me.basiqueevangelist.potionofdisassociation.client;
+package me.basiqueevangelist.potionofdissociation.client;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

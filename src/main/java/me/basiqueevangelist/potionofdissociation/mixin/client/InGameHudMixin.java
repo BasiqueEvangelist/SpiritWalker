@@ -1,6 +1,6 @@
-package me.basiqueevangelist.potionofdisassociation.mixin.client;
+package me.basiqueevangelist.potionofdissociation.mixin.client;
 
-import me.basiqueevangelist.potionofdisassociation.client.FakeCameraEntity;
+import me.basiqueevangelist.potionofdissociation.client.FakeCameraEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,4 +1,4 @@
-package me.basiqueevangelist.potionofdisassociation.client;
+package me.basiqueevangelist.potionofdissociation.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -8,16 +8,14 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.input.KeyboardInput;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MovementType;
 
 @Environment(EnvType.CLIENT)
-public class PotionOfDisassociationClient implements ClientModInitializer {
+public class PotionOfDissociationClient implements ClientModInitializer {
     private static FakeCameraEntity CAMERA;
 
-    public static void enterDisassociation(LivingEntity entity) {
+    public static void enterDissociation(LivingEntity entity) {
         if (!(entity instanceof ClientPlayerEntity player)) return;
         if (CAMERA != null) return;
 
@@ -29,7 +27,7 @@ public class PotionOfDisassociationClient implements ClientModInitializer {
         client.setCameraEntity(CAMERA);
     }
 
-    public static void leaveDisassociation(LivingEntity entity) {
+    public static void leaveDissociation(LivingEntity entity) {
         if (!(entity instanceof ClientPlayerEntity player)) return;
         if (CAMERA == null) return;
 
@@ -38,10 +36,6 @@ public class PotionOfDisassociationClient implements ClientModInitializer {
         client.setCameraEntity(player);
         player.input = new KeyboardInput(client.options);
         CAMERA = null;
-    }
-
-    public static boolean isDisassociating() {
-        return CAMERA == null;
     }
 
     @Override

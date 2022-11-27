@@ -1,4 +1,4 @@
-package me.basiqueevangelist.potionofdisassociation;
+package me.basiqueevangelist.potionofdissociation;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -9,19 +9,19 @@ import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class PotionOfDisassociation implements ModInitializer {
-    public static final DisassociationStatusEffect EFFECT = new DisassociationStatusEffect();
+public class PotionOfDissociation implements ModInitializer {
+    public static final DissociationStatusEffect EFFECT = new DissociationStatusEffect();
     public static final Potion POTION = new Potion(new StatusEffectInstance(EFFECT, 20 * 60 * 2));
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.STATUS_EFFECT, id("disassociation"), EFFECT);
-        Registry.register(Registry.POTION, id("disassociation"), POTION);
+        Registry.register(Registry.STATUS_EFFECT, id("dissociation"), EFFECT);
+        Registry.register(Registry.POTION, id("dissociation"), POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.RED_MUSHROOM, POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.BROWN_MUSHROOM, POTION);
     }
 
     private Identifier id(String path) {
-        return new Identifier("potion-of-disassociation", path);
+        return new Identifier("potion-of-dissociation", path);
     }
 }

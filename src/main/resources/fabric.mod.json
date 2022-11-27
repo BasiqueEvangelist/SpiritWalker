@@ -1,31 +1,31 @@
 {
     "schemaVersion": 1,
-    "id": "potion-of-disassociation",
+    "id": "potion-of-dissociation",
     "version": "${version}",
-    "name": "Potion Of Disassociation",
+    "name": "Potion Of Dissociation",
     "description": "",
     "authors": [
         "BasiqueEvangelist"
     ],
     "contact": {
-        "repo": "https://github.com/BasiqueEvangelist/PotionOfDisassociation"
+        "repo": "https://github.com/BasiqueEvangelist/PotionOfDissociation"
     },
     "license": "LGPL-3.0",
-    "icon": "assets/potion-of-disassociation/icon.png",
+    "icon": "assets/potion-of-dissociation/icon.png",
     "environment": "*",
     "entrypoints": {
         "client": [
-            "me.basiqueevangelist.potionofdisassociation.client.PotionOfDisassociationClient"
+            "me.basiqueevangelist.potionofdissociation.client.PotionOfDissociationClient"
         ],
         "main": [
-            "me.basiqueevangelist.potionofdisassociation.PotionOfDisassociation"
+            "me.basiqueevangelist.potionofdissociation.PotionOfDissociation"
         ],
         "preLaunch": [
-            "me.basiqueevangelist.potionofdisassociation.PotionOfDisassociationPrelaunch"
+            "me.basiqueevangelist.potionofdissociation.PotionOfDissociationPrelaunch"
         ]
     },
     "mixins": [
-        "potion-of-disassociation.mixins.json"
+        "potion-of-disssociation.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=0.14.10",

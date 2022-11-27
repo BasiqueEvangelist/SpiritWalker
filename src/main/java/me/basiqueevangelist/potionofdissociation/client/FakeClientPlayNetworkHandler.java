@@ -1,11 +1,8 @@
-package me.basiqueevangelist.potionofdisassociation.client;
+package me.basiqueevangelist.potionofdissociation.client;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.client.util.telemetry.TelemetrySender;
-import net.minecraft.network.ClientConnection;
 import net.minecraft.network.NetworkSide;
 import net.minecraft.network.Packet;
 import net.minecraft.util.Util;

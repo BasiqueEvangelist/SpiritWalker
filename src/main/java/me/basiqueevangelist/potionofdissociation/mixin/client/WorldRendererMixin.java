@@ -1,7 +1,7 @@
-package me.basiqueevangelist.potionofdisassociation.mixin.client;
+package me.basiqueevangelist.potionofdissociation.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import me.basiqueevangelist.potionofdisassociation.client.FakeCameraEntity;
+import me.basiqueevangelist.potionofdissociation.client.FakeCameraEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.entity.Entity;
