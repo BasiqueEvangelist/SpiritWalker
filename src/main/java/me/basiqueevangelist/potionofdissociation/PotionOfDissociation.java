@@ -1,5 +1,6 @@
 package me.basiqueevangelist.potionofdissociation;
 
+import me.basiqueevangelist.potionofdissociation.config.PotionOfDissociationConfig;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
@@ -10,6 +11,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class PotionOfDissociation implements ModInitializer {
+    public static final PotionOfDissociationConfig CONFIG = PotionOfDissociationConfig.createAndLoad();
+
     public static final DissociationStatusEffect EFFECT = new DissociationStatusEffect();
     public static final Potion POTION = new Potion(new StatusEffectInstance(EFFECT, 20 * 60 * 2));
     public static final Potion LONG_POTION = new Potion("dissociation", new StatusEffectInstance(EFFECT, 20 * 60 * 5));
@@ -19,9 +22,12 @@ public class PotionOfDissociation implements ModInitializer {
         Registry.register(Registry.STATUS_EFFECT, id("dissociation"), EFFECT);
         Registry.register(Registry.POTION, id("dissociation"), POTION);
         Registry.register(Registry.POTION, id("long_dissociation"), LONG_POTION);
-        BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.RED_MUSHROOM, POTION);
-        BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.BROWN_MUSHROOM, POTION);
-        BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.REDSTONE, LONG_POTION);
+
+        if (CONFIG.enableDefaultRecipe()) {
+            BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.RED_MUSHROOM, POTION);
+            BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.BROWN_MUSHROOM, POTION);
+            BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.REDSTONE, LONG_POTION);
+        }
     }
 
     private Identifier id(String path) {

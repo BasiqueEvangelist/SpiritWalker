@@ -3,7 +3,7 @@
     "id": "potion-of-dissociation",
     "version": "${version}",
     "name": "Potion Of Dissociation",
-    "description": "",
+    "description": "Freecam in a bottle",
     "authors": [
         "BasiqueEvangelist"
     ],
@@ -30,6 +30,7 @@
     "depends": {
         "fabricloader": ">=0.14.10",
         "fabric": "*",
-        "minecraft": "1.19.2"
+        "minecraft": "1.19.2",
+        "owo": ">=0.9.0"
     }
 }

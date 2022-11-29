@@ -4,5 +4,14 @@
     "item.minecraft.potion.effect.dissociation": "Potion of Dissociation",
     "item.minecraft.splash_potion.effect.dissociation": "Splash Potion of Dissociation",
     "item.minecraft.lingering_potion.effect.dissociation": "Lingering Potion of Dissociation",
-    "item.minecraft.tipped_arrow.effect.dissociation": "Arrow of Dissociation"
+    "item.minecraft.tipped_arrow.effect.dissociation": "Arrow of Dissociation",
+
+    "text.config.potion-of-dissociation.title": "Potion Of Dissociation Config",
+    "text.config.potion-of-dissociation.option.enableDefaultRecipe": "Enable Default Recipe",
+    "text.config.potion-of-dissociation.option.enableDefaultRecipe.tooltip": [
+        "Enables the default recipe for the potion.\n",
+        "Disable this if you want to use your own."
+    ],
+    "text.config.potion-of-dissociation.option.listenFromBody": "Listen from Body",
+    "text.config.potion-of-dissociation.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera"
 }

@@ -21,4 +21,12 @@ public class WorldRendererMixin {
 
         return old;
     }
+
+    @ModifyExpressionValue(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isSpectator()Z"))
+    private boolean disableCullingIfNeeded(boolean orig) {
+        if (client.getCameraEntity() instanceof FakeCameraEntity)
+            return true;
+
+        return orig;
+    }
 }
