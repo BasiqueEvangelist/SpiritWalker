@@ -1,4 +1,4 @@
-package me.basiqueevangelist.potionofdissociation.client;
+package me.basiqueevangelist.spiritwalker.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -12,7 +12,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 
 @Environment(EnvType.CLIENT)
-public class PotionOfDissociationClient implements ClientModInitializer {
+public class SpiritWalkerClient implements ClientModInitializer {
     private static FakeCameraEntity CAMERA;
 
     public static void enterDissociation(LivingEntity entity, int level) {

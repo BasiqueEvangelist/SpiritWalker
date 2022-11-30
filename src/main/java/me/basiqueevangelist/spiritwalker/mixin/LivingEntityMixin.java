@@ -1,7 +1,7 @@
-package me.basiqueevangelist.potionofdissociation.mixin;
+package me.basiqueevangelist.spiritwalker.mixin;
 
-import me.basiqueevangelist.potionofdissociation.PotionOfDissociation;
-import me.basiqueevangelist.potionofdissociation.client.PotionOfDissociationClient;
+import me.basiqueevangelist.spiritwalker.SpiritWalker;
+import me.basiqueevangelist.spiritwalker.client.SpiritWalkerClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -22,15 +22,15 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "onStatusEffectApplied", at = @At("HEAD"))
     private void based(StatusEffectInstance effect, Entity source, CallbackInfo ci) {
-        if (effect.getEffectType() == PotionOfDissociation.EFFECT && world.isClient) {
-            PotionOfDissociationClient.enterDissociation((LivingEntity)(Object) this, effect.getAmplifier());
+        if (effect.getEffectType() == SpiritWalker.EFFECT && world.isClient) {
+            SpiritWalkerClient.enterDissociation((LivingEntity)(Object) this, effect.getAmplifier());
         }
     }
 
     @Inject(method = "removeStatusEffectInternal", at = @At("HEAD"))
     private void based(StatusEffect type, CallbackInfoReturnable<StatusEffectInstance> cir) {
-        if (type == PotionOfDissociation.EFFECT && world.isClient) {
-            PotionOfDissociationClient.leaveDissociation((LivingEntity)(Object) this);
+        if (type == SpiritWalker.EFFECT && world.isClient) {
+            SpiritWalkerClient.leaveDissociation((LivingEntity)(Object) this);
         }
     }
 }

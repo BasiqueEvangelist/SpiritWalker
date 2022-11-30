@@ -1,4 +1,4 @@
-package me.basiqueevangelist.potionofdissociation.client;
+package me.basiqueevangelist.spiritwalker.client;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

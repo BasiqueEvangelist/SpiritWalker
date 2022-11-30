@@ -1,7 +1,7 @@
-package me.basiqueevangelist.potionofdissociation.mixin.client;
+package me.basiqueevangelist.spiritwalker.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import me.basiqueevangelist.potionofdissociation.client.FakeCameraEntity;
+import me.basiqueevangelist.spiritwalker.client.FakeCameraEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

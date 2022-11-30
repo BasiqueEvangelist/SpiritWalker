@@ -1,0 +1,17 @@
+{
+    "effect.spirit-walker.spirit_walk": "Spirit Walk",
+    "effect.spirit-walker.spirit_walk.desc": "Temporarily removes you from your body",
+    "item.minecraft.potion.effect.spirit_walk": "Potion of Spirit Walking",
+    "item.minecraft.splash_potion.effect.spirit_walk": "Splash Potion of Spirit Walking",
+    "item.minecraft.lingering_potion.effect.spirit_walk": "Lingering Potion of Spirit Walking",
+    "item.minecraft.tipped_arrow.effect.spirit_walk": "Arrow of Spirit Walking",
+
+    "text.config.spirit-walker.title": "Spirit Walker Config",
+    "text.config.spirit-walker.option.enableDefaultRecipe": "Enable Default Recipe",
+    "text.config.spirit-walker.option.enableDefaultRecipe.tooltip": [
+        "Enables the default recipe for the potion.\n",
+        "Disable this if you want to use your own."
+    ],
+    "text.config.spirit-walker.option.listenFromBody": "Listen from Body",
+    "text.config.spirit-walker.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera"
+}

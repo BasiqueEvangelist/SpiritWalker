@@ -1,8 +1,8 @@
-package me.basiqueevangelist.potionofdissociation.mixin.client;
+package me.basiqueevangelist.spiritwalker.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import me.basiqueevangelist.potionofdissociation.PotionOfDissociation;
-import me.basiqueevangelist.potionofdissociation.client.FakeCameraEntity;
+import me.basiqueevangelist.spiritwalker.SpiritWalker;
+import me.basiqueevangelist.spiritwalker.client.FakeCameraEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.SoundSystem;
 import net.minecraft.util.math.Vec3d;
@@ -14,7 +14,7 @@ public class SoundSystemMixin {
     @ModifyExpressionValue(method = "updateListenerPosition", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/Camera;getPos()Lnet/minecraft/util/math/Vec3d;"))
     private Vec3d replaceWithPlayer(Vec3d orig) {
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client.getCameraEntity() instanceof FakeCameraEntity && PotionOfDissociation.CONFIG.listenFromBody())
+        if (client.getCameraEntity() instanceof FakeCameraEntity && SpiritWalker.CONFIG.listenFromBody())
             return client.player.getEyePos();
 
         return orig;
