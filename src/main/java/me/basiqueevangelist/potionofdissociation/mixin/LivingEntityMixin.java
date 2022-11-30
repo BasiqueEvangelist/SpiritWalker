@@ -23,7 +23,7 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "onStatusEffectApplied", at = @At("HEAD"))
     private void based(StatusEffectInstance effect, Entity source, CallbackInfo ci) {
         if (effect.getEffectType() == PotionOfDissociation.EFFECT && world.isClient) {
-            PotionOfDissociationClient.enterDissociation((LivingEntity)(Object) this);
+            PotionOfDissociationClient.enterDissociation((LivingEntity)(Object) this, effect.getAmplifier());
         }
     }
 

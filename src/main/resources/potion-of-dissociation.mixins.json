@@ -12,7 +12,8 @@
         "client.InGameHudMixin",
         "client.MouseMixin",
         "client.SoundSystemMixin",
-        "client.WorldRendererMixin"
+        "client.WorldRendererMixin",
+        "client.PlayerEntityMixin"
     ],
     "injectors": {
         "defaultRequire": 1

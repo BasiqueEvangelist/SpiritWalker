@@ -15,16 +15,19 @@ import net.minecraft.entity.LivingEntity;
 public class PotionOfDissociationClient implements ClientModInitializer {
     private static FakeCameraEntity CAMERA;
 
-    public static void enterDissociation(LivingEntity entity) {
+    public static void enterDissociation(LivingEntity entity, int level) {
         if (!(entity instanceof ClientPlayerEntity player)) return;
-        if (CAMERA != null) return;
 
-        var client = MinecraftClient.getInstance();
-        CAMERA = new FakeCameraEntity(client, client.world);
-        CAMERA.updatePositionAndAngles(player.getX(), player.getY(), player.getZ(), player.getHeadYaw(), player.getPitch());
-        CAMERA.input = new KeyboardInput(client.options);
-        client.player.input = new Input();
-        client.setCameraEntity(CAMERA);
+        if (CAMERA == null) {
+            var client = MinecraftClient.getInstance();
+            CAMERA = new FakeCameraEntity(client, client.world);
+            CAMERA.updatePositionAndAngles(player.getX(), player.getY(), player.getZ(), player.getHeadYaw(), player.getPitch());
+            CAMERA.input = new KeyboardInput(client.options);
+            client.player.input = new Input();
+            client.setCameraEntity(CAMERA);
+        }
+
+        CAMERA.canNoClip = level > 0;
     }
 
     public static void leaveDissociation(LivingEntity entity) {

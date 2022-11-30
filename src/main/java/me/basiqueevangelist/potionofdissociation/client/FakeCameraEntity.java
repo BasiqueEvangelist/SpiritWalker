@@ -7,6 +7,8 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.stat.StatHandler;
 
 public class FakeCameraEntity extends ClientPlayerEntity {
+    public boolean canNoClip = false;
+
     public FakeCameraEntity(MinecraftClient client, ClientWorld world) {
         super(client, world, new FakeClientPlayNetworkHandler(client), new StatHandler(), new ClientRecipeBook(), false, false);
         getAbilities().flying = true;
