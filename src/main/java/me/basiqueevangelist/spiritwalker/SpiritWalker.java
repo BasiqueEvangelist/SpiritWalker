@@ -1,6 +1,7 @@
 package me.basiqueevangelist.spiritwalker;
 
 import me.basiqueevangelist.spiritwalker.config.SpiritWalkerConfig;
+import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -29,6 +30,8 @@ public class SpiritWalker implements ModInitializer {
         Registry.register(Registry.POTION, id("strong_spirit_walk"), STRONG_POTION);
         Registry.register(Registry.POTION, id("long_spirit_walk"), LONG_POTION);
 
+        SpiritWalkerNetworking.init();
+
         if (CONFIG.enableDefaultRecipe()) {
             BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.RED_MUSHROOM, POTION);
             BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.BROWN_MUSHROOM, POTION);
@@ -37,7 +40,7 @@ public class SpiritWalker implements ModInitializer {
         }
     }
 
-    private Identifier id(String path) {
+    public static Identifier id(String path) {
         return new Identifier("spirit-walker", path);
     }
 }

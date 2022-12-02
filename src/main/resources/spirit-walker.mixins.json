@@ -10,10 +10,11 @@
         "client.ClientPlayerEntityMixin",
         "client.GameRendererMixin",
         "client.InGameHudMixin",
+        "client.MinecraftClientMixin",
         "client.MouseMixin",
+        "client.PlayerEntityMixin",
         "client.SoundSystemMixin",
-        "client.WorldRendererMixin",
-        "client.PlayerEntityMixin"
+        "client.WorldRendererMixin"
     ],
     "injectors": {
         "defaultRequire": 1

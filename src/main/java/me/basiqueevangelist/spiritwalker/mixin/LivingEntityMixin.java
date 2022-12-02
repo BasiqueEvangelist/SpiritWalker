@@ -23,14 +23,21 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "onStatusEffectApplied", at = @At("HEAD"))
     private void based(StatusEffectInstance effect, Entity source, CallbackInfo ci) {
         if (effect.getEffectType() == SpiritWalker.EFFECT && world.isClient) {
-            SpiritWalkerClient.enterDissociation((LivingEntity)(Object) this, effect.getAmplifier());
+            SpiritWalkerClient.enterSpiritWalk((LivingEntity)(Object) this, effect.getAmplifier());
         }
     }
 
     @Inject(method = "removeStatusEffectInternal", at = @At("HEAD"))
     private void based(StatusEffect type, CallbackInfoReturnable<StatusEffectInstance> cir) {
         if (type == SpiritWalker.EFFECT && world.isClient) {
-            SpiritWalkerClient.leaveDissociation((LivingEntity)(Object) this);
+            SpiritWalkerClient.leaveSpiritWalk((LivingEntity)(Object) this);
+        }
+    }
+
+    @Inject(method = "onStatusEffectUpgraded", at = @At("HEAD"))
+    private void based(StatusEffectInstance effect, boolean reapplyEffect, Entity source, CallbackInfo ci) {
+        if (effect.getEffectType() == SpiritWalker.EFFECT && world.isClient) {
+            SpiritWalkerClient.enterSpiritWalk((LivingEntity)(Object) this, effect.getAmplifier());
         }
     }
 }
