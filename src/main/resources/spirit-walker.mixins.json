@@ -8,12 +8,15 @@
     ],
     "client": [
         "client.ClientPlayerEntityMixin",
+        "client.EntityMixin",
         "client.GameRendererMixin",
         "client.InGameHudMixin",
         "client.MinecraftClientMixin",
         "client.MouseMixin",
         "client.PlayerEntityMixin",
+        "client.PlayerEntityRendererMixin",
         "client.SoundSystemMixin",
+        "client.WorldRendererAccessor",
         "client.WorldRendererMixin"
     ],
     "injectors": {

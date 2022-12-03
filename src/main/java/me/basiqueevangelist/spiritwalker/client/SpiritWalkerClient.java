@@ -1,10 +1,12 @@
 package me.basiqueevangelist.spiritwalker.client;
 
+import me.basiqueevangelist.spiritwalker.mixin.client.WorldRendererAccessor;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
@@ -86,6 +88,26 @@ public class SpiritWalkerClient implements ClientModInitializer {
             if (CAMERA == null) return TypedActionResult.pass(stack);
 
             return TypedActionResult.fail(stack);
+        });
+
+        WorldRenderEvents.AFTER_ENTITIES.register(context -> {
+            if (context.camera().getFocusedEntity() instanceof FakeCameraEntity camEntity
+             && context.camera().isThirdPerson()) {
+                context.matrixStack().push();
+                camEntity.lastRenderX = camEntity.prevX;
+                camEntity.lastRenderY = camEntity.prevY;
+                camEntity.lastRenderZ = camEntity.prevZ;
+                ((WorldRendererAccessor) context.worldRenderer()).callRenderEntity(
+                    camEntity,
+                    context.camera().getPos().x,
+                    context.camera().getPos().y,
+                    context.camera().getPos().z,
+                    context.tickDelta(),
+                    context.matrixStack(),
+                    context.consumers()
+                );
+                context.matrixStack().pop();
+            }
         });
     }
 }
