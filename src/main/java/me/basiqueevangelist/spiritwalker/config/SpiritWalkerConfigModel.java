@@ -11,5 +11,8 @@ import io.wispforest.owo.config.annotation.Sync;
 @Sync(Option.SyncMode.OVERRIDE_CLIENT)
 public class SpiritWalkerConfigModel {
     @RestartRequired public boolean enableDefaultRecipe = true;
-    public boolean listenFromBody = true;
+    @RestartRequired public int normalPotionLength = 60;
+    @RestartRequired public int strongPotionLength = 30;
+    @RestartRequired public int longPotionLength = 60 * 5 / 2;
+    public boolean listenFromBody = false;
 }

@@ -8,9 +8,11 @@
         "BasiqueEvangelist"
     ],
     "contact": {
-        "repo": "https://github.com/BasiqueEvangelist/PotionOfDissociation"
+        "homepage": "https://modrinth.com/mod/spirit-walker",
+        "sources": "https://github.com/BasiqueEvangelist/SpiritWalker",
+        "issues": "https://github.com/BasiqueEvangelist/SpiritWalker/issues"
     },
-    "license": "LGPL-3.0",
+    "license": "LGPL-3.0-only",
     "icon": "assets/spirit-walker/icon.png",
     "environment": "*",
     "entrypoints": {
@@ -27,6 +29,13 @@
     "mixins": [
         "spirit-walker.mixins.json"
     ],
+    "custom": {
+        "modmenu": {
+            "links": {
+                "modmenu.discord": "https://wispforest.io/discord"
+            }
+        }
+    },
     "depends": {
         "fabricloader": ">=0.14.10",
         "fabric": "*",

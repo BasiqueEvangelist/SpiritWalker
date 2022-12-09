@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class WorldRendererMixin {
     @Shadow @Final private MinecraftClient client;
 
+    // Taken from https://github.com/maruohon/tweakeroo/blob/pre-rewrite/fabric/1.19.x/src/main/java/fi/dy/masa/tweakeroo/mixin/MixinWorldRenderer.java#L67-L78.
     @ModifyExpressionValue(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/Camera;getFocusedEntity()Lnet/minecraft/entity/Entity;", ordinal = 3))
     private Entity makePlayerRender(Entity old) {
         if (client.getCameraEntity() instanceof FakeCameraEntity)

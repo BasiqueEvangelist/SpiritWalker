@@ -12,6 +12,12 @@
         "Enables the default recipe for the potion.\n",
         "Disable this if you want to use your own."
     ],
+    "text.config.spirit-walker.option.normalPotionLength": "Normal Potion Length",
+    "text.config.spirit-walker.option.normalPotionLength.tooltip": "The length of the normal potion, in seconds",
+    "text.config.spirit-walker.option.strongPotionLength": "Strong Potion Length",
+    "text.config.spirit-walker.option.strongPotionLength.tooltip": "The length of the strong potion, in seconds",
+    "text.config.spirit-walker.option.longPotionLength": "Long Potion Length",
+    "text.config.spirit-walker.option.longPotionLength.tooltip": "The length of the long potion, in seconds",
     "text.config.spirit-walker.option.listenFromBody": "Listen from Body",
     "text.config.spirit-walker.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera"
 }

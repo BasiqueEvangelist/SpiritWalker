@@ -20,6 +20,7 @@ public class InGameHudMixin {
     @Shadow @Final private MinecraftClient client;
     private int spiritwalker$hotbarTime = 0;
 
+    // Taken from https://github.com/maruohon/tweakeroo/blob/pre-rewrite/fabric/1.19.x/src/main/java/fi/dy/masa/tweakeroo/mixin/MixinInGameHud.java#L29-L37.
     @Inject(method = "getCameraPlayer", at = @At("HEAD"), cancellable = true)
     private void mald(CallbackInfoReturnable<PlayerEntity> cir) {
         if (client.getCameraEntity() instanceof FakeCameraEntity)

@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class GameRendererMixin {
     @Shadow @Final private MinecraftClient client;
 
+    // Taken from https://github.com/maruohon/tweakeroo/blob/pre-rewrite/fabric/1.19.x/src/main/java/fi/dy/masa/tweakeroo/mixin/MixinGameRenderer.java#L145-L152.
     @Inject(method = "renderHand", at = @At("HEAD"), cancellable = true)
     private void noHandRendering(MatrixStack matrices, Camera camera, float tickDelta, CallbackInfo ci) {
         if (client.getCameraEntity() instanceof FakeCameraEntity) {

@@ -18,11 +18,11 @@ public class SpiritWalker implements ModInitializer {
     public static final CustomStatusEffect EFFECT
         = new CustomStatusEffect(StatusEffectCategory.BENEFICIAL, 0xA020F0);
     public static final Potion POTION = new Potion(
-        new StatusEffectInstance(EFFECT, 20 * 60));
+        new StatusEffectInstance(EFFECT, 20 * CONFIG.normalPotionLength()));
     public static final Potion STRONG_POTION = new Potion("spirit_walk",
-        new StatusEffectInstance(EFFECT, 20 * 30, 1));
+        new StatusEffectInstance(EFFECT, 20 * CONFIG.strongPotionLength(), 1));
     public static final Potion LONG_POTION = new Potion("spirit_walk",
-        new StatusEffectInstance(EFFECT, 20 * 60 * 5 / 2));
+        new StatusEffectInstance(EFFECT, 20 * CONFIG.longPotionLength()));
     @Override
     public void onInitialize() {
         Registry.register(Registry.STATUS_EFFECT, id("spirit_walk"), EFFECT);
