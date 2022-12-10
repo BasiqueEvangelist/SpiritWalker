@@ -24,6 +24,9 @@
         ],
         "preLaunch": [
             "me.basiqueevangelist.spiritwalker.SpiritWalkerPreLaunch"
+        ],
+        "rei_client": [
+            "me.basiqueevangelist.spiritwalker.compat.rei.SpiritWalkerReiClientPlugin"
         ]
     },
     "mixins": [

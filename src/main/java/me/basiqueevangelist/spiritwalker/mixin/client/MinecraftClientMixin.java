@@ -1,5 +1,6 @@
 package me.basiqueevangelist.spiritwalker.mixin.client;
 
+import me.basiqueevangelist.spiritwalker.SpiritWalker;
 import me.basiqueevangelist.spiritwalker.client.FakeCameraEntity;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
 import me.basiqueevangelist.spiritwalker.network.StopSpiritWalkC2SPacket;
@@ -28,7 +29,9 @@ public class MinecraftClientMixin {
     @Inject(method = "doAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/hit/HitResult;getType()Lnet/minecraft/util/hit/HitResult$Type;"), cancellable = true)
     private void mald(CallbackInfoReturnable<Boolean> cir) {
         if (cameraEntity instanceof FakeCameraEntity) {
-            if (crosshairTarget instanceof EntityHitResult ehr && ehr.getEntity() == player) {
+            if (crosshairTarget instanceof EntityHitResult ehr
+             && ehr.getEntity() == player
+             && SpiritWalker.CONFIG.allowReturningImmediately()) {
                 SpiritWalkerNetworking.CHANNEL.clientHandle().send(new StopSpiritWalkC2SPacket());
             }
 

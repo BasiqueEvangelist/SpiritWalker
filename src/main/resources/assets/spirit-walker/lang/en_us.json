@@ -18,6 +18,10 @@
     "text.config.spirit-walker.option.strongPotionLength.tooltip": "The length of the strong potion, in seconds",
     "text.config.spirit-walker.option.longPotionLength": "Long Potion Length",
     "text.config.spirit-walker.option.longPotionLength.tooltip": "The length of the long potion, in seconds",
+    "text.config.spirit-walker.option.allowReturningImmediately": "Allow Returning Immediately",
+    "text.config.spirit-walker.option.allowReturningImmediately.tooltip": "Allows you to end spirit walking by attacking yourself",
+    "text.config.spirit-walker.option.disableSplashAndLingering": "Disable Splash And Lingering",
+    "text.config.spirit-walker.option.disableSplashAndLingering.tooltip": "Disables the splash and lingering variants of the potions",
     "text.config.spirit-walker.option.listenFromBody": "Listen from Body",
     "text.config.spirit-walker.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera"
 }

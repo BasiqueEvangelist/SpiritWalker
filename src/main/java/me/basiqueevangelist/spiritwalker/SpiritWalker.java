@@ -12,6 +12,8 @@ import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import java.util.List;
+
 public class SpiritWalker implements ModInitializer {
     public static final SpiritWalkerConfig CONFIG = SpiritWalkerConfig.createAndLoad();
 
@@ -23,6 +25,12 @@ public class SpiritWalker implements ModInitializer {
         new StatusEffectInstance(EFFECT, 20 * CONFIG.strongPotionLength(), 1));
     public static final Potion LONG_POTION = new Potion("spirit_walk",
         new StatusEffectInstance(EFFECT, 20 * CONFIG.longPotionLength()));
+    public final static List<Potion> POTIONS = List.of(
+        POTION,
+        LONG_POTION,
+        STRONG_POTION
+    );
+
     @Override
     public void onInitialize() {
         Registry.register(Registry.STATUS_EFFECT, id("spirit_walk"), EFFECT);
@@ -33,8 +41,7 @@ public class SpiritWalker implements ModInitializer {
         SpiritWalkerNetworking.init();
 
         if (CONFIG.enableDefaultRecipe()) {
-            BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.RED_MUSHROOM, POTION);
-            BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.BROWN_MUSHROOM, POTION);
+            BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.WARPED_FUNGUS, POTION);
             BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.REDSTONE, LONG_POTION);
             BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.GLOWSTONE_DUST, STRONG_POTION);
         }
