@@ -9,7 +9,7 @@ import io.wispforest.owo.config.annotation.*;
 public class SpiritWalkerConfigModel {
     @RestartRequired public boolean enableDefaultRecipe = true;
     @RestartRequired public int normalPotionLength = 15;
-    @RestartRequired public int strongPotionLength = 10;
+    @RestartRequired public int strongPotionLength = 15;
     @RestartRequired public int longPotionLength = 30;
     public boolean allowReturningImmediately = false;
     public boolean disableSplashAndLingering = true;
