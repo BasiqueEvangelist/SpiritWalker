@@ -9,7 +9,7 @@ Make sure to secure the area before drinking, or risk watching helplessly as you
 
 ## Recipes
 
-![Brewing recipes](https://raw.githubusercontent.com/BasiqueEvangelist/SpiritWalker/master/media/spiritwalk-recipe.png)
+![Brewing recipes](https://raw.githubusercontent.com/BasiqueEvangelist/SpiritWalker/media/media/spiritwalk-recipe.png)
 
 Use warped fungus on awkward potion to get basic Spirit Walk, then further enchance with redstone to extend or glowstone to go through walls.  
 Splash and lingering not brewable.
