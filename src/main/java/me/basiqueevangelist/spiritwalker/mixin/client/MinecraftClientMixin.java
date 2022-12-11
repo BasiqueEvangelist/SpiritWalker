@@ -39,6 +39,13 @@ public class MinecraftClientMixin {
         }
     }
 
+    @Inject(method = {"doItemUse", "doItemPick"}, at = @At("HEAD"), cancellable = true)
+    private void mald(CallbackInfo ci) {
+        if (cameraEntity instanceof FakeCameraEntity) {
+            ci.cancel();
+        }
+    }
+
     @Inject(method = "handleBlockBreaking", at = @At(value = "FIELD", target = "Lnet/minecraft/client/MinecraftClient;attackCooldown:I", opcode = Opcodes.GETFIELD), cancellable = true)
     private void mald(boolean breaking, CallbackInfo ci) {
         if (cameraEntity instanceof FakeCameraEntity) {

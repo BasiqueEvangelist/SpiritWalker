@@ -7,13 +7,11 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
-import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.TypedActionResult;
 
 @Environment(EnvType.CLIENT)
 public class SpiritWalkerClient implements ClientModInitializer {
@@ -79,15 +77,6 @@ public class SpiritWalkerClient implements ClientModInitializer {
         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
             CAMERA = null;
             STOPPING_SPIRIT_WALK = false;
-        });
-
-        UseItemCallback.EVENT.register((player, world, hand) -> {
-            var stack = player.getStackInHand(hand);
-
-            if (!world.isClient) return TypedActionResult.pass(stack);
-            if (CAMERA == null) return TypedActionResult.pass(stack);
-
-            return TypedActionResult.fail(stack);
         });
 
         WorldRenderEvents.AFTER_ENTITIES.register(context -> {
