@@ -5,7 +5,7 @@
 ![Credits to Pois1x](https://img.shields.io/badge/textures%20by-pois1x-red)  
 **An out of body experience**
 
-Spirit Walker lets detach from your minecraft body.  
+Spirit Walker lets you detach from your minecraft body.  
 Just drink the magic potion, and your soul will fly free, for a time, to explore your surroundings unhindered.  
 *(it's freecam, with optional noclip)*
 
