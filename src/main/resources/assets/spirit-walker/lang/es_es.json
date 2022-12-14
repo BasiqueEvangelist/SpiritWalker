@@ -1,0 +1,27 @@
+{
+    "effect.spirit-walker.spirit_walk": "Paseo espiritual",
+    "effect.spirit-walker.spirit_walk.desc": "Te saca temporalmente de tu cuerpo",
+    "item.minecraft.potion.effect.spirit_walk": "Poción de paseo espiritual",
+    "item.minecraft.splash_potion.effect.spirit_walk": "Poción arrojadiza de paseo espiritual",
+    "item.minecraft.lingering_potion.effect.spirit_walk": "Poción persistente de paseo espiritual",
+    "item.minecraft.tipped_arrow.effect.spirit_walk": "Flecha de paseo espiritual",
+
+    "text.config.spirit-walker.title": "Configuración de «Spirit walker»",
+    "text.config.spirit-walker.option.enableDefaultRecipe": "Activar receta por defecto",
+    "text.config.spirit-walker.option.enableDefaultRecipe.tooltip": [
+        "Activa la receta por defecto de la poción.\n",
+        "Desactívalo si quieres utilizar el tuyo propio."
+    ],
+    "text.config.spirit-walker.option.normalPotionLength": "Duración de la poción normal",
+    "text.config.spirit-walker.option.normalPotionLength.tooltip": "La duración de la poción normal, en segundos",
+    "text.config.spirit-walker.option.strongPotionLength": "Duración de la poción potente",
+    "text.config.spirit-walker.option.strongPotionLength.tooltip": "La duración de la poción potente, en segundos",
+    "text.config.spirit-walker.option.longPotionLength": "Duración de la poción larga",
+    "text.config.spirit-walker.option.longPotionLength.tooltip": "La duración de la poción larga, en segundos",
+    "text.config.spirit-walker.option.allowReturningImmediately": "Permitir el regreso inmediato",
+    "text.config.spirit-walker.option.allowReturningImmediately.tooltip": "Te permite acabar con el paseo espiritual atacándote a ti mismo",
+    "text.config.spirit-walker.option.disableSplashAndLingering": "Desactivar las pociones arrojadizas y persistentes",
+    "text.config.spirit-walker.option.disableSplashAndLingering.tooltip": "Desactiva las variantes arrojadizas y persistentes de las pociones.",
+    "text.config.spirit-walker.option.listenFromBody": "Escuchar desde el cuerpo del jugador.",
+    "text.config.spirit-walker.option.listenFromBody.tooltip": "Los sonidos se oirán desde la ubicación del jugador, no desde la cámara"
+}
