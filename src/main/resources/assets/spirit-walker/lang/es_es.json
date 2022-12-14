@@ -6,7 +6,7 @@
     "item.minecraft.lingering_potion.effect.spirit_walk": "Poción persistente de paseo espiritual",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "Flecha de paseo espiritual",
 
-    "text.config.spirit-walker.title": "Configuración de paseo espiritual",
+    "text.config.spirit-walker.title": "Configuración de «Spirit walker»",
     "text.config.spirit-walker.option.enableDefaultRecipe": "Activar receta por defecto",
     "text.config.spirit-walker.option.enableDefaultRecipe.tooltip": [
         "Activa la receta por defecto de la poción.\n",
