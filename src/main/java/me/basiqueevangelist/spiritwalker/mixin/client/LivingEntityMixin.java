@@ -1,4 +1,4 @@
-package me.basiqueevangelist.spiritwalker.mixin;
+package me.basiqueevangelist.spiritwalker.mixin.client;
 
 import me.basiqueevangelist.spiritwalker.SpiritWalker;
 import me.basiqueevangelist.spiritwalker.client.SpiritWalkerClient;

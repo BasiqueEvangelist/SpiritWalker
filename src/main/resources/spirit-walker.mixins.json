@@ -4,10 +4,10 @@
     "package": "me.basiqueevangelist.spiritwalker.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
-        "BrewingRecipeRegistryMixin",
-        "LivingEntityMixin"
+        "BrewingRecipeRegistryMixin"
     ],
     "client": [
+        "client.LivingEntityMixin",
         "client.ClientPlayerEntityMixin",
         "client.EntityMixin",
         "client.GameRendererMixin",
