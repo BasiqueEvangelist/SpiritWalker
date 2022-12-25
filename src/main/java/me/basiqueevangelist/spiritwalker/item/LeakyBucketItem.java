@@ -10,7 +10,9 @@ import net.minecraft.world.World;
 
 public class LeakyBucketItem extends Item {
     public LeakyBucketItem() {
-        super(new FabricItemSettings().group(ItemGroup.MISC));
+        super(new FabricItemSettings()
+            .group(ItemGroup.MISC)
+            .maxCount(1));
     }
 
     @Override

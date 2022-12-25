@@ -1,5 +1,6 @@
 package me.basiqueevangelist.spiritwalker.mixin;
 
+import me.basiqueevangelist.spiritwalker.SpiritWalkerParticles;
 import me.basiqueevangelist.spiritwalker.item.LeakyBucketItem;
 import me.basiqueevangelist.spiritwalker.network.BreakItemS2CPacket;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
@@ -41,15 +42,18 @@ public class DamageTrackerMixin {
                     targets.add(player);
                     SpiritWalkerNetworking.CHANNEL.serverHandle(targets)
                         .send(new BreakItemS2CPacket(player.getId(), stack));
+                    SpiritWalkerParticles.BIG_SPLASH.spawn(player.world, player.getPos());
                     stack.decrement(1);
 
-                    BlockPos pos = entity.getBlockPos();
-                    BlockState state = entity.world.getBlockState(entity.getBlockPos());
-                    if (state.isAir()) {
-                        entity.world.setBlockState(entity.getBlockPos(), Blocks.WATER.getDefaultState());
-                    } else if (state instanceof FluidFillable fillable
+                    if (player.world.canPlayerModifyAt(player, player.getBlockPos())) {
+                        BlockPos pos = entity.getBlockPos();
+                        BlockState state = entity.world.getBlockState(entity.getBlockPos());
+                        if (state.isAir()) {
+                            entity.world.setBlockState(entity.getBlockPos(), Blocks.WATER.getDefaultState());
+                        } else if (state instanceof FluidFillable fillable
                             && fillable.canFillWithFluid(entity.world, pos, state, Fluids.WATER)) {
-                        fillable.tryFillWithFluid(entity.world, pos, state, Fluids.WATER.getStill(false));
+                            fillable.tryFillWithFluid(entity.world, pos, state, Fluids.WATER.getStill(false));
+                        }
                     }
 
                     ci.cancel();
