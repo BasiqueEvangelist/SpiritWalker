@@ -15,29 +15,29 @@ import net.minecraft.entity.LivingEntity;
 
 @Environment(EnvType.CLIENT)
 public class SpiritWalkerClient implements ClientModInitializer {
-    private static FakeCameraEntity CAMERA;
     private static boolean STOPPING_SPIRIT_WALK = false;
 
     public static void enterSpiritWalk(LivingEntity entity, int level) {
         if (!(entity instanceof ClientPlayerEntity player)) return;
 
         STOPPING_SPIRIT_WALK = false;
+        var client = MinecraftClient.getInstance();
 
-        if (CAMERA == null) {
-            var client = MinecraftClient.getInstance();
-            CAMERA = new FakeCameraEntity(client, client.world);
-            CAMERA.updatePositionAndAngles(player.getX(), player.getY(), player.getZ(), player.getHeadYaw(), player.getPitch());
-            CAMERA.input = new KeyboardInput(client.options);
+        if (!(client.cameraEntity instanceof FakeCameraEntity camera)) {
+            var camera = new FakeCameraEntity(client, client.world);
+            camera.updatePositionAndAngles(player.getX(), player.getY(), player.getZ(), player.getHeadYaw(), player.getPitch());
+            camera.input = new KeyboardInput(client.options);
             client.player.input = new Input();
-            client.setCameraEntity(CAMERA);
+            client.setCameraEntity(camera);
+            camera.canNoClip = level > 0;
+        } else {
+            camera.canNoClip = level > 0;
         }
-
-        CAMERA.canNoClip = level > 0;
     }
 
     public static void leaveSpiritWalk(LivingEntity entity) {
-        if (!(entity instanceof ClientPlayerEntity player)) return;
-        if (CAMERA == null) return;
+        if (!(entity instanceof ClientPlayerEntity)) return;
+        if (!(MinecraftClient.getInstance().cameraEntity instanceof FakeCameraEntity)) return;
 
         STOPPING_SPIRIT_WALK = true;
     }
@@ -46,36 +46,34 @@ public class SpiritWalkerClient implements ClientModInitializer {
     public void onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.isPaused()) return;
-            if (CAMERA == null) return;
+            if (!(client.cameraEntity instanceof FakeCameraEntity camera)) return;
 
-            double prevX = CAMERA.getX();
-            double prevY = CAMERA.getY();
-            double prevZ = CAMERA.getZ();
+            double prevX = camera.getX();
+            double prevY = camera.getY();
+            double prevZ = camera.getZ();
 
             if (STOPPING_SPIRIT_WALK) {
-                CAMERA.updatePosition(
-                    (CAMERA.getX() * 4 + client.player.getX()) / 5,
-                    (CAMERA.getY() * 4 + client.player.getY()) / 5,
-                    (CAMERA.getZ() * 4 + client.player.getZ()) / 5
+                camera.updatePosition(
+                    (camera.getX() * 4 + client.player.getX()) / 5,
+                    (camera.getY() * 4 + client.player.getY()) / 5,
+                    (camera.getZ() * 4 + client.player.getZ()) / 5
                 );
             } else {
-                CAMERA.tick();
+                camera.tick();
             }
 
-            CAMERA.prevX = prevX;
-            CAMERA.prevY = prevY;
-            CAMERA.prevZ = prevZ;
+            camera.prevX = prevX;
+            camera.prevY = prevY;
+            camera.prevZ = prevZ;
 
-            if (STOPPING_SPIRIT_WALK && CAMERA.squaredDistanceTo(client.player) < 0.1) {
+            if (STOPPING_SPIRIT_WALK && camera.squaredDistanceTo(client.player) < 0.1) {
                 client.setCameraEntity(client.player);
                 client.player.input = new KeyboardInput(client.options);
-                CAMERA = null;
                 STOPPING_SPIRIT_WALK = false;
             }
         });
 
         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
-            CAMERA = null;
             STOPPING_SPIRIT_WALK = false;
         });
 
