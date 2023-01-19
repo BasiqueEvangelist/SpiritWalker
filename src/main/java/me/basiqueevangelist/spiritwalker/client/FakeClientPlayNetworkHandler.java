@@ -7,7 +7,7 @@ import net.minecraft.network.Packet;
 
 public class FakeClientPlayNetworkHandler extends ClientPlayNetworkHandler {
     public FakeClientPlayNetworkHandler(MinecraftClient client) {
-        super(client, null, new FakeClientConnection(NetworkSide.CLIENTBOUND), client.getSession().getProfile(), null);
+        super(client, null, new FakeClientConnection(NetworkSide.CLIENTBOUND), null, client.getSession().getProfile(), null);
     }
 
     @Override

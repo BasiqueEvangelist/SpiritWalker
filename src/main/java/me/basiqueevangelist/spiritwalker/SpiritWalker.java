@@ -9,8 +9,9 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
 import net.minecraft.recipe.BrewingRecipeRegistry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.List;
 
@@ -33,10 +34,10 @@ public class SpiritWalker implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.STATUS_EFFECT, id("spirit_walk"), EFFECT);
-        Registry.register(Registry.POTION, id("spirit_walk"), POTION);
-        Registry.register(Registry.POTION, id("strong_spirit_walk"), STRONG_POTION);
-        Registry.register(Registry.POTION, id("long_spirit_walk"), LONG_POTION);
+        Registry.register(Registries.STATUS_EFFECT, id("spirit_walk"), EFFECT);
+        Registry.register(Registries.POTION, id("spirit_walk"), POTION);
+        Registry.register(Registries.POTION, id("strong_spirit_walk"), STRONG_POTION);
+        Registry.register(Registries.POTION, id("long_spirit_walk"), LONG_POTION);
 
         SpiritWalkerNetworking.init();
 
