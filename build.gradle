@@ -43,7 +43,7 @@ dependencies {
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${project.rei_version}"
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:${project.rei_version}"
 
-    modLocalRuntime "maven.modrinth:idwtialsimmoedm:0.2.0+1.19.3"
+//    modLocalRuntime "maven.modrinth:idwtialsimmoedm:0.2.0+1.19.3"
     modLocalRuntime "maven.modrinth:lazydfu:0.1.3"
     modLocalRuntime "io.wispforest:gadget:${project.gadget_version}"
     modLocalRuntime "com.terraformersmc:modmenu:5.0.2"
