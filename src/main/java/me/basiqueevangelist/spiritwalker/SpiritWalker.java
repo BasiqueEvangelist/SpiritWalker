@@ -1,6 +1,7 @@
 package me.basiqueevangelist.spiritwalker;
 
 import me.basiqueevangelist.spiritwalker.config.SpiritWalkerConfig;
+import me.basiqueevangelist.spiritwalker.item.LeakyBucketItem;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -32,14 +33,18 @@ public class SpiritWalker implements ModInitializer {
         STRONG_POTION
     );
 
+    public static final LeakyBucketItem LEAKY_BUCKET = new LeakyBucketItem();
+
     @Override
     public void onInitialize() {
         Registry.register(Registries.STATUS_EFFECT, id("spirit_walk"), EFFECT);
         Registry.register(Registries.POTION, id("spirit_walk"), POTION);
         Registry.register(Registries.POTION, id("strong_spirit_walk"), STRONG_POTION);
         Registry.register(Registries.POTION, id("long_spirit_walk"), LONG_POTION);
+        Registry.register(Registries.ITEM, id("leaky_bucket"), LEAKY_BUCKET);
 
         SpiritWalkerNetworking.init();
+        SpiritWalkerParticles.init();
 
         if (CONFIG.enableDefaultRecipe()) {
             BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.WARPED_FUNGUS, POTION);

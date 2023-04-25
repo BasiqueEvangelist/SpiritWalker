@@ -1,6 +1,9 @@
 package me.basiqueevangelist.spiritwalker.client;
 
+import me.basiqueevangelist.spiritwalker.mixin.LivingEntityAccessor;
 import me.basiqueevangelist.spiritwalker.mixin.client.WorldRendererAccessor;
+import me.basiqueevangelist.spiritwalker.network.BreakItemS2CPacket;
+import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -44,6 +47,14 @@ public class SpiritWalkerClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        SpiritWalkerNetworking.CHANNEL.registerClientbound(BreakItemS2CPacket.class, (message, access) -> {
+            var entity = access.player().world.getEntityById(message.entityId());
+
+            if (!(entity instanceof LivingEntity living)) return;
+
+            ((LivingEntityAccessor) living).callPlayEquipmentBreakEffects(message.brokenStack());
+        });
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.isPaused()) return;
             if (!(client.cameraEntity instanceof FakeCameraEntity camera)) return;

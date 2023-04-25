@@ -5,6 +5,7 @@
     "item.minecraft.splash_potion.effect.spirit_walk": "Splash Potion of Spirit Walking",
     "item.minecraft.lingering_potion.effect.spirit_walk": "Lingering Potion of Spirit Walking",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "Arrow of Spirit Walking",
+    "item.spirit-walker.leaky_bucket": "Leaky Bucket",
 
     "text.config.spirit-walker.title": "Spirit Walker Config",
     "text.config.spirit-walker.option.enableDefaultRecipe": "Enable Default Recipe",

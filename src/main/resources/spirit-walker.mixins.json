@@ -4,14 +4,16 @@
     "package": "me.basiqueevangelist.spiritwalker.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
-        "BrewingRecipeRegistryMixin"
+        "BrewingRecipeRegistryMixin",
+        "DamageTrackerMixin",
+        "LivingEntityAccessor"
     ],
     "client": [
-        "client.LivingEntityMixin",
         "client.ClientPlayerEntityMixin",
         "client.EntityMixin",
         "client.GameRendererMixin",
         "client.InGameHudMixin",
+        "client.LivingEntityMixin",
         "client.MinecraftClientMixin",
         "client.MouseMixin",
         "client.PlayerEntityMixin",
