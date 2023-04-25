@@ -1,0 +1,27 @@
+{
+    "effect.spirit-walker.spirit_walk": "スピリットウォーク",
+    "effect.spirit-walker.spirit_walk.desc": "一時的に魂を肉体から分離させる",
+    "item.minecraft.potion.effect.spirit_walk": "スピリットウォークのポーション",
+    "item.minecraft.splash_potion.effect.spirit_walk": "スピリットウォークのスプラッシュポーション",
+    "item.minecraft.lingering_potion.effect.spirit_walk": "スピリットウォークの残留ポーション",
+    "item.minecraft.tipped_arrow.effect.spirit_walk": "スピリットウォークの矢",
+
+    "text.config.spirit-walker.title": "Spirit Walker の設定",
+    "text.config.spirit-walker.option.enableDefaultRecipe": "デフォルトレシピを有効化",
+    "text.config.spirit-walker.option.enableDefaultRecipe.tooltip": [
+        "デフォルトのポーションレシピを有効化します。\n",
+        "独自のレシピを使用したい場合は無効化して下さい"
+    ],
+    "text.config.spirit-walker.option.normalPotionLength": "通常のポーションの長さ",
+    "text.config.spirit-walker.option.normalPotionLength.tooltip": "通常のポーションの効果時間 ( 秒 )",
+    "text.config.spirit-walker.option.strongPotionLength": "強化されたポーションの長さ",
+    "text.config.spirit-walker.option.strongPotionLength.tooltip": "強化されたポーションの効果時間 ( 秒 )",
+    "text.config.spirit-walker.option.longPotionLength": "延長されたポーションの長さ",
+    "text.config.spirit-walker.option.longPotionLength.tooltip": "延長されたポーションの効果時間 ( 秒 )",
+    "text.config.spirit-walker.option.allowReturningImmediately": "即時復帰を可能にする",
+    "text.config.spirit-walker.option.allowReturningImmediately.tooltip": "自分自身を攻撃することでスピリットウォークを終了できるようになる",
+    "text.config.spirit-walker.option.disableSplashAndLingering": "スプラッシュと残留の無効化",
+    "text.config.spirit-walker.option.disableSplashAndLingering.tooltip": "スプラッシュと残留のポーションタイプを無効化する",
+    "text.config.spirit-walker.option.listenFromBody": "体から聞く",
+    "text.config.spirit-walker.option.listenFromBody.tooltip": "音が残した本体から聞こえるようになる"
+}
