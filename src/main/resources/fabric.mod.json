@@ -22,9 +22,6 @@
         "main": [
             "me.basiqueevangelist.spiritwalker.SpiritWalker"
         ],
-        "preLaunch": [
-            "me.basiqueevangelist.spiritwalker.SpiritWalkerPreLaunch"
-        ],
         "rei_client": [
             "me.basiqueevangelist.spiritwalker.compat.rei.SpiritWalkerReiClientPlugin"
         ]
@@ -43,6 +40,7 @@
         "fabricloader": ">=0.14.10",
         "fabric": "*",
         "minecraft": "1.19.4",
-        "owo": ">=0.9.0"
+        "owo": ">=0.9.0",
+        "com_github_llamalad7_mixinextras": "*"
     }
 }

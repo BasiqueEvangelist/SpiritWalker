@@ -35,7 +35,7 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    implementation annotationProcessor(include("com.github.LlamaLad7:MixinExtras:0.1.1"))
+    implementation annotationProcessor(include("com.github.LlamaLad7.MixinExtras:mixinextras-fabric:0.2.0-beta.6"))
 
     modImplementation annotationProcessor("io.wispforest:owo-lib:${project.owo_version}")
     include "io.wispforest:owo-sentinel:${project.owo_version}"
