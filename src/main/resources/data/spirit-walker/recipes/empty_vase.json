@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "G": {
+            "item": "minecraft:glass"
+        },
+        "P": {
+            "item": "minecraft:phantom_membrane"
+        }
+    },
+    "pattern": [
+        "G G",
+        "GPG",
+        " G "
+    ],
+    "result": {
+        "item": "spirit-walker:empty_vase"
+    }
+}

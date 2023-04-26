@@ -1,6 +1,6 @@
 package me.basiqueevangelist.spiritwalker.client;
 
-import me.basiqueevangelist.spiritwalker.mixin.LivingEntityAccessor;
+import me.basiqueevangelist.spiritwalker.duck.LivingEntityAccess;
 import me.basiqueevangelist.spiritwalker.mixin.client.WorldRendererAccessor;
 import me.basiqueevangelist.spiritwalker.network.BreakItemS2CPacket;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
@@ -20,6 +20,7 @@ import net.minecraft.entity.LivingEntity;
 public class SpiritWalkerClient implements ClientModInitializer {
     private static boolean STOPPING_SPIRIT_WALK = false;
 
+    @SuppressWarnings("DataFlowIssue")
     public static void enterSpiritWalk(LivingEntity entity, int level) {
         if (!(entity instanceof ClientPlayerEntity player)) return;
 
@@ -45,6 +46,7 @@ public class SpiritWalkerClient implements ClientModInitializer {
         STOPPING_SPIRIT_WALK = true;
     }
 
+    @SuppressWarnings({"resource", "DataFlowIssue"})
     @Override
     public void onInitializeClient() {
         SpiritWalkerNetworking.CHANNEL.registerClientbound(BreakItemS2CPacket.class, (message, access) -> {
@@ -52,7 +54,7 @@ public class SpiritWalkerClient implements ClientModInitializer {
 
             if (!(entity instanceof LivingEntity living)) return;
 
-            ((LivingEntityAccessor) living).callPlayEquipmentBreakEffects(message.brokenStack());
+            ((LivingEntityAccess) living).callSpawnItemParticles(message.brokenStack(), 5);
         });
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -84,9 +86,8 @@ public class SpiritWalkerClient implements ClientModInitializer {
             }
         });
 
-        ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
-            STOPPING_SPIRIT_WALK = false;
-        });
+        ClientPlayConnectionEvents.DISCONNECT.register(
+            (handler, client) -> STOPPING_SPIRIT_WALK = false);
 
         WorldRenderEvents.AFTER_ENTITIES.register(context -> {
             if (context.camera().getFocusedEntity() instanceof FakeCameraEntity camEntity

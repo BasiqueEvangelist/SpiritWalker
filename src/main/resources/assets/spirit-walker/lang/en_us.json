@@ -5,7 +5,11 @@
     "item.minecraft.splash_potion.effect.spirit_walk": "Splash Potion of Spirit Walking",
     "item.minecraft.lingering_potion.effect.spirit_walk": "Lingering Potion of Spirit Walking",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "Arrow of Spirit Walking",
-    "item.spirit-walker.leaky_bucket": "Leaky Bucket",
+    "item.spirit-walker.empty_vase": "Vase",
+    "item.spirit-walker.filled_vase": "Filled Vase",
+
+    "advancements.spirit-walker.make_empty_vase.title": "Mom's Favourite Vase",
+    "advancements.spirit-walker.make_empty_vase.description": "Fashion a vase from glass",
 
     "text.config.spirit-walker.title": "Spirit Walker Config",
     "text.config.spirit-walker.option.enableDefaultRecipe": "Enable Default Recipe",

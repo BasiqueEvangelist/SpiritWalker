@@ -6,7 +6,7 @@
     "mixins": [
         "BrewingRecipeRegistryMixin",
         "DamageTrackerMixin",
-        "LivingEntityAccessor"
+        "LivingEntityMixin"
     ],
     "client": [
         "client.ClientPlayerEntityMixin",

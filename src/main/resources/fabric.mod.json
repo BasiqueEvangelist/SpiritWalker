@@ -41,6 +41,7 @@
         "fabric": "*",
         "minecraft": "1.19.4",
         "owo": ">=0.9.0",
-        "com_github_llamalad7_mixinextras": "*"
+        "com_github_llamalad7_mixinextras": "*",
+        "common-protection-api": "*"
     }
 }
