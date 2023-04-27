@@ -1,15 +1,23 @@
 package me.basiqueevangelist.spiritwalker;
 
+import me.basiqueevangelist.spiritwalker.client.SpiritWalkerClient;
 import me.basiqueevangelist.spiritwalker.config.SpiritWalkerConfig;
 import me.basiqueevangelist.spiritwalker.item.EmptyVaseItem;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
@@ -18,7 +26,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.TypedActionResult;
 
 import java.util.List;
 
@@ -61,11 +71,42 @@ public class SpiritWalker implements ModInitializer {
             entries.add(FILLED_VASE);
         });
 
+        UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            if (isInSpiritWalk(player))
+                return ActionResult.FAIL;
+
+            return ActionResult.PASS;
+        });
+
+        UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
+            if (isInSpiritWalk(player))
+                return ActionResult.FAIL;
+
+            return ActionResult.PASS;
+        });
+
+        UseItemCallback.EVENT.register((player, world, hand) -> {
+            ItemStack stack = player.getStackInHand(hand);
+
+            if (isInSpiritWalk(player))
+                return TypedActionResult.fail(stack);
+
+            return TypedActionResult.pass(stack);
+        });
+
         if (CONFIG.enableDefaultRecipe()) {
             BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.WARPED_FUNGUS, POTION);
             BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.REDSTONE, LONG_POTION);
             BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.GLOWSTONE_DUST, STRONG_POTION);
         }
+    }
+
+    public static boolean isInSpiritWalk(PlayerEntity player) {
+        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+            return SpiritWalkerClient.isInSpiritWalk(player);
+
+        // TODO: make this still be true while the player is returning to their body.
+        return player.hasStatusEffect(EFFECT);
     }
 
     public static Identifier id(String path) {

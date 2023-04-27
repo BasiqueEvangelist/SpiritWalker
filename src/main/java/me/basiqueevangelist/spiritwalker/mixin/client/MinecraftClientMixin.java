@@ -1,5 +1,6 @@
 package me.basiqueevangelist.spiritwalker.mixin.client;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import me.basiqueevangelist.spiritwalker.SpiritWalker;
 import me.basiqueevangelist.spiritwalker.client.FakeCameraEntity;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
@@ -15,6 +16,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -51,5 +53,17 @@ public class MinecraftClientMixin {
         if (cameraEntity instanceof FakeCameraEntity) {
             ci.cancel();
         }
+    }
+
+    @ModifyExpressionValue(
+        method = "handleInputEvents",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isSpectator()Z"),
+        slice = @Slice(
+            from = @At(value = "FIELD", target = "Lnet/minecraft/client/option/GameOptions;swapHandsKey:Lnet/minecraft/client/option/KeyBinding;"),
+            to = @At(value = "FIELD", target = "Lnet/minecraft/client/option/GameOptions;chatKey:Lnet/minecraft/client/option/KeyBinding;")
+        )
+    )
+    private boolean forceSpectator(boolean old) {
+        return old || cameraEntity instanceof FakeCameraEntity;
     }
 }

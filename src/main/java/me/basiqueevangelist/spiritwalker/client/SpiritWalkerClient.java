@@ -15,6 +15,7 @@ import net.minecraft.client.input.Input;
 import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 
 @Environment(EnvType.CLIENT)
 public class SpiritWalkerClient implements ClientModInitializer {
@@ -44,6 +45,11 @@ public class SpiritWalkerClient implements ClientModInitializer {
         if (!(MinecraftClient.getInstance().cameraEntity instanceof FakeCameraEntity)) return;
 
         STOPPING_SPIRIT_WALK = true;
+    }
+
+    public static boolean isInSpiritWalk(PlayerEntity player) {
+        return player instanceof ClientPlayerEntity
+            && MinecraftClient.getInstance().cameraEntity instanceof FakeCameraEntity;
     }
 
     @SuppressWarnings({"resource", "DataFlowIssue"})
