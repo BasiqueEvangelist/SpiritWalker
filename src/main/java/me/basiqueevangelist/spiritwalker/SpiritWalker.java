@@ -55,7 +55,6 @@ public class SpiritWalker implements ModInitializer {
         Registry.register(Registries.ITEM, id("filled_vase"), FILLED_VASE);
 
         SpiritWalkerNetworking.init();
-        SpiritWalkerParticles.init();
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.add(EMPTY_VASE);
