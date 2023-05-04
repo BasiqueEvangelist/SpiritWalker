@@ -11,6 +11,13 @@
     "advancements.spirit-walker.make_empty_vase.title": "Mom's Favourite Vase",
     "advancements.spirit-walker.make_empty_vase.description": "Fashion a vase from glass",
 
+    "subtitles.item.spirit-walker.vase.break": "Vase shatters",
+
+    "text.spirit-walker.fragile_tooltip": {
+        "text": "Fragile",
+        "color": "red"
+    },
+
     "text.config.spirit-walker.title": "Spirit Walker Config",
     "text.config.spirit-walker.option.enableDefaultRecipe": "Enable Default Recipe",
     "text.config.spirit-walker.option.enableDefaultRecipe.tooltip": [

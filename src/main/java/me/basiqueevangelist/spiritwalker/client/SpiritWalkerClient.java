@@ -1,5 +1,6 @@
 package me.basiqueevangelist.spiritwalker.client;
 
+import me.basiqueevangelist.spiritwalker.SpiritWalker;
 import me.basiqueevangelist.spiritwalker.duck.LivingEntityAccess;
 import me.basiqueevangelist.spiritwalker.mixin.client.WorldRendererAccessor;
 import me.basiqueevangelist.spiritwalker.network.BreakItemS2CPacket;
@@ -8,6 +9,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
@@ -16,12 +18,16 @@ import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.Text;
+import org.jetbrains.annotations.ApiStatus;
 
 @Environment(EnvType.CLIENT)
+@ApiStatus.Internal
 public class SpiritWalkerClient implements ClientModInitializer {
     private static boolean STOPPING_SPIRIT_WALK = false;
 
     @SuppressWarnings("DataFlowIssue")
+    @ApiStatus.Internal
     public static void enterSpiritWalk(LivingEntity entity, int level) {
         if (!(entity instanceof ClientPlayerEntity player)) return;
 
@@ -113,6 +119,11 @@ public class SpiritWalkerClient implements ClientModInitializer {
                 );
                 context.matrixStack().pop();
             }
+        });
+
+        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+            if (stack.isIn(SpiritWalker.VASE))
+                lines.add(Text.translatable("text.spirit-walker.fragile_tooltip"));
         });
     }
 }

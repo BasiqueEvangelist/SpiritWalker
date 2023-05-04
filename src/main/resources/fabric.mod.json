@@ -3,7 +3,7 @@
     "id": "spirit-walker",
     "version": "${version}",
     "name": "Spirit Walker",
-    "description": "Freecam in a bottle",
+    "description": "Reforms various \"utility\" client features as legitimate items",
     "authors": [
         "BasiqueEvangelist"
     ],

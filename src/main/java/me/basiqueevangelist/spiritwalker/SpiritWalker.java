@@ -26,6 +26,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
@@ -51,7 +52,9 @@ public class SpiritWalker implements ModInitializer {
 
     public static final EmptyVaseItem EMPTY_VASE = new EmptyVaseItem();
     public static final Item FILLED_VASE = new Item(new FabricItemSettings().maxCount(1));
+    public static final SoundEvent VASE_BREAK = SoundEvent.of(id("item.vase.break"));
 
+    public static TagKey<Item> VASE = TagKey.of(RegistryKeys.ITEM, id("vase"));
     public static TagKey<Item> BREAKS_ON_FALL = TagKey.of(RegistryKeys.ITEM, id("breaks_on_fall"));
     public static TagKey<Item> SAVES_FROM_FALL_DEATH = TagKey.of(RegistryKeys.ITEM, id("saves_from_fall_death"));
 
@@ -63,6 +66,7 @@ public class SpiritWalker implements ModInitializer {
         Registry.register(Registries.POTION, id("long_spirit_walk"), LONG_POTION);
         Registry.register(Registries.ITEM, id("empty_vase"), EMPTY_VASE);
         Registry.register(Registries.ITEM, id("filled_vase"), FILLED_VASE);
+        Registry.register(Registries.SOUND_EVENT, id("item.vase.break"), VASE_BREAK);
 
         SpiritWalkerNetworking.init();
 

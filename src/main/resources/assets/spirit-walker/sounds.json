@@ -1,0 +1,23 @@
+{
+    "item.vase.break": {
+        "sounds": [
+            {
+                "name": "minecraft:random/glass1",
+                "weight": 7
+            },
+            {
+                "name": "minecraft:random/glass2",
+                "weight": 7
+            },
+            {
+                "name": "minecraft:random/glass3",
+                "weight": 7
+            },
+            {
+                "name": "spirit-walker:item/vase_special",
+                "weight": 3
+            }
+        ],
+        "subtitle": "subtitles.item.spirit-walker.vase.break"
+    }
+}

@@ -46,7 +46,7 @@ public class DamageTrackerMixin {
                     player.world.playSound(
                         null,
                         player.getBlockPos(),
-                        SoundEvents.BLOCK_GLASS_BREAK,
+                        SpiritWalker.VASE_BREAK,
                         SoundCategory.PLAYERS,
                         1.0f,
                         player.getRandom().nextFloat() * 0.1F + 0.9F

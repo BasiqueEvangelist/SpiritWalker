@@ -30,4 +30,15 @@ public abstract class ClientPlayerEntityMixin {
         return orig;
     }
 
+    @SuppressWarnings("ConstantValue")
+    @ModifyExpressionValue(
+        method = "tickMovement",
+        at = {
+            @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isTouchingWater()Z"),
+            @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isSubmergedInWater()Z")
+        }
+    )
+    private boolean forceNotInWater(boolean orig) {
+        return !((Object) this instanceof FakeCameraEntity) && orig;
+    }
 }
