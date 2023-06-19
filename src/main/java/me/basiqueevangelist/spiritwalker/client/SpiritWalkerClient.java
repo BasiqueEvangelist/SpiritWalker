@@ -62,7 +62,7 @@ public class SpiritWalkerClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         SpiritWalkerNetworking.CHANNEL.registerClientbound(BreakItemS2CPacket.class, (message, access) -> {
-            var entity = access.player().world.getEntityById(message.entityId());
+            var entity = access.player().getWorld().getEntityById(message.entityId());
 
             if (!(entity instanceof LivingEntity living)) return;
 

@@ -12,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -27,9 +26,9 @@ public class DamageTrackerMixin {
     @Shadow @Final private LivingEntity entity;
 
     @Inject(method = "onDamage", at = @At("HEAD"), cancellable = true)
-    private void tryUseLeakyBucket(DamageSource damageSource, float originalHealth, float damage, CallbackInfo ci) {
+    private void tryUseLeakyBucket(DamageSource damageSource, float damage, CallbackInfo ci) {
         if (damageSource.isIn(DamageTypeTags.IS_FALL)
-            && originalHealth <= damage
+            && entity.getHealth() <= damage
             && entity instanceof ServerPlayerEntity player) {
             boolean saved = false;
 
@@ -43,7 +42,7 @@ public class DamageTrackerMixin {
                     targets.add(player);
                     SpiritWalkerNetworking.CHANNEL.serverHandle(targets)
                         .send(new BreakItemS2CPacket(player.getId(), stack));
-                    player.world.playSound(
+                    player.getWorld().playSound(
                         null,
                         player.getBlockPos(),
                         SpiritWalker.VASE_BREAK,

@@ -1,7 +1,7 @@
 plugins {
     id 'fabric-loom' version '1.2-SNAPSHOT'
     id 'maven-publish'
-    id 'io.github.juuxel.loom-quiltflower' version '1.8.0'
+    id 'io.github.juuxel.loom-quiltflower' version '1.10.0'
 }
 
 version = "${project.mod_version}+${rootProject.minecraft_base_version}"
@@ -47,9 +47,9 @@ dependencies {
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin:${project.rei_version}"
 
 //    modLocalRuntime "maven.modrinth:idwtialsimmoedm:0.2.0+1.19.3"
-    modLocalRuntime "maven.modrinth:lazydfu:0.1.3"
+//    modLocalRuntime "maven.modrinth:lazydfu:0.1.3"
 //    modLocalRuntime "io.wispforest:gadget:${project.gadget_version}"
-    modLocalRuntime "com.terraformersmc:modmenu:5.0.2"
+    modLocalRuntime "com.terraformersmc:modmenu:7.1.0"
     modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 }
 
