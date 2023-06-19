@@ -10,13 +10,11 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
@@ -70,10 +68,10 @@ public class SpiritWalker implements ModInitializer {
 
         SpiritWalkerNetworking.init();
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
-            entries.add(EMPTY_VASE);
-            entries.add(FILLED_VASE);
-        });
+//        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+//            entries.add(EMPTY_VASE);
+//            entries.add(FILLED_VASE);
+//        });
 
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             if (isInSpiritWalk(player))

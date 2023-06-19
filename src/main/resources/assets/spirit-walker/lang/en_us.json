@@ -13,6 +13,11 @@
 
     "subtitles.item.spirit-walker.vase.break": "Vase shatters",
 
+    "text.spirit-walker.indev": {
+        "text": "Not yet released.",
+        "color": "red"
+    },
+
     "text.spirit-walker.fragile_tooltip": {
         "text": "Fragile",
         "color": "red"
