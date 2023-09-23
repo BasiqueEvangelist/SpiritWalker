@@ -1,0 +1,29 @@
+{
+    "parent": "minecraft:story/smelt_iron",
+    "display": {
+        "icon": {
+            "item": "spirit-walker:filled_leaky_bucket"
+        },
+        "title": {
+            "translate": "advancements.spirit-walker.saved_by_leaky_bucket.title"
+        },
+        "description": {
+            "translate": "advancements.spirit-walker.saved_by_leaky_bucket.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "saved": {
+            "trigger": "spirit-walker:saved_from_fall_death",
+            "conditions": {}
+        }
+    },
+    "requirements": [
+        [
+            "saved"
+        ]
+    ]
+}

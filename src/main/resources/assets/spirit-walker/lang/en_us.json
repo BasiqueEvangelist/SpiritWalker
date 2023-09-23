@@ -5,23 +5,17 @@
     "item.minecraft.splash_potion.effect.spirit_walk": "Splash Potion of Spirit Walking",
     "item.minecraft.lingering_potion.effect.spirit_walk": "Lingering Potion of Spirit Walking",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "Arrow of Spirit Walking",
-    "item.spirit-walker.empty_vase": "Vase",
-    "item.spirit-walker.filled_vase": "Filled Vase",
+    "item.spirit-walker.empty_leaky_bucket": "Empty Leaky Bucket",
+    "item.spirit-walker.filled_leaky_bucket": "Leaky Bucket",
 
-    "advancements.spirit-walker.make_empty_vase.title": "Mom's Favourite Vase",
-    "advancements.spirit-walker.make_empty_vase.description": "Fashion a vase from glass",
+    "advancements.spirit-walker.brew_spirit_walk.title": "Astral Projection In A Bottle",
+    "advancements.spirit-walker.brew_spirit_walk.description": "Brew a Spirit Walk potion",
+    "advancements.spirit-walker.die_while_spirit_walking.title": "An Unfortunate Series Of Events",
+    "advancements.spirit-walker.die_while_spirit_walking.description": "Die during a spirit walk",
+    "advancements.spirit-walker.saved_by_leaky_bucket.title": "Physics Conundrum",
+    "advancements.spirit-walker.saved_by_leaky_bucket.description": "Save yourself from a deadly fall with a Leaky Bucket",
 
-    "subtitles.item.spirit-walker.vase.break": "Vase shatters",
-
-    "text.spirit-walker.indev": {
-        "text": "Not yet released.",
-        "color": "red"
-    },
-
-    "text.spirit-walker.fragile_tooltip": {
-        "text": "Fragile",
-        "color": "red"
-    },
+    "category.spirit-walker.fill_leaky_bucket": "Filling Leaky Bucket",
 
     "text.config.spirit-walker.title": "Spirit Walker Config",
     "text.config.spirit-walker.option.enableDefaultRecipe": "Enable Default Recipe",

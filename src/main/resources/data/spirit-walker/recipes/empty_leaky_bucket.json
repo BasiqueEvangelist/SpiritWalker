@@ -1,19 +1,19 @@
 {
     "type": "minecraft:crafting_shaped",
     "key": {
-        "G": {
-            "item": "minecraft:glass"
+        "R": {
+            "item": "minecraft:mangrove_roots"
         },
         "P": {
             "item": "minecraft:phantom_membrane"
         }
     },
     "pattern": [
-        "G G",
-        "GPG",
-        " G "
+        "R R",
+        "RPR",
+        " R "
     ],
     "result": {
-        "item": "spirit-walker:empty_vase"
+        "item": "spirit-walker:empty_leaky_bucket"
     }
 }

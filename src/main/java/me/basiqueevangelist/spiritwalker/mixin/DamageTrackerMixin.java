@@ -1,6 +1,7 @@
 package me.basiqueevangelist.spiritwalker.mixin;
 
 import me.basiqueevangelist.spiritwalker.SpiritWalker;
+import me.basiqueevangelist.spiritwalker.criteria.SavedFromFallDeathCriterion;
 import me.basiqueevangelist.spiritwalker.duck.LivingEntityAccess;
 import me.basiqueevangelist.spiritwalker.network.BreakItemS2CPacket;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,9 +37,9 @@ public class DamageTrackerMixin {
             for (int i = 0; i < player.getInventory().size(); i++) {
                 ItemStack stack = player.getInventory().getStack(i);
 
-                if (stack.isIn(SpiritWalker.SAVES_FROM_FALL_DEATH)) saved = true;
+                if (stack.getItem() == SpiritWalker.FILLED_LEAKY_BUCKET) {
+                    saved = true;
 
-                if (stack.isIn(SpiritWalker.BREAKS_ON_FALL)) {
                     var targets = new ArrayList<>(PlayerLookup.tracking(player));
                     targets.add(player);
                     SpiritWalkerNetworking.CHANNEL.serverHandle(targets)
@@ -45,7 +47,7 @@ public class DamageTrackerMixin {
                     player.getWorld().playSound(
                         null,
                         player.getBlockPos(),
-                        SpiritWalker.VASE_BREAK,
+                        SoundEvents.BLOCK_MANGROVE_ROOTS_BREAK,
                         SoundCategory.PLAYERS,
                         1.0f,
                         player.getRandom().nextFloat() * 0.1F + 0.9F
@@ -55,6 +57,8 @@ public class DamageTrackerMixin {
             }
 
             if (saved) {
+                SpiritWalker.SAVED_FROM_FALL_DEATH.trigger(player);
+
                 ((LivingEntityAccess) player).spiritWalker$setSaveFromFall();
                 ci.cancel();
             }

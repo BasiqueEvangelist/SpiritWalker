@@ -1,0 +1,29 @@
+{
+    "parent": "spirit-walker:brew_spirit_walk",
+    "display": {
+        "icon": {
+            "item": "minecraft:skeleton_skull"
+        },
+        "title": {
+            "translate": "advancements.spirit-walker.die_while_spirit_walking.title"
+        },
+        "description": {
+            "translate": "advancements.spirit-walker.die_while_spirit_walking.description"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "die_while_spirit_walking": {
+            "trigger": "spirit-walker:died_during_spirit_walk",
+            "conditions": {}
+        }
+    },
+    "requirements": [
+        [
+            "die_while_spirit_walking"
+        ]
+    ]
+}

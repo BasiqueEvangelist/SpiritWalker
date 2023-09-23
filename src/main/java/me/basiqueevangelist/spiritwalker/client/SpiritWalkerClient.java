@@ -120,13 +120,5 @@ public class SpiritWalkerClient implements ClientModInitializer {
                 context.matrixStack().pop();
             }
         });
-
-        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
-            if (stack.isIn(SpiritWalker.VASE)) {
-                lines.add(Text.translatable("text.spirit-walker.indev"));
-
-                lines.add(Text.translatable("text.spirit-walker.fragile_tooltip"));
-            }
-        });
     }
 }

@@ -1,28 +1,27 @@
 {
-    "parent": "minecraft:story/smelt_iron",
+    "parent": "minecraft:story/enter_the_nether",
     "display": {
         "icon": {
-            "item": "spirit-walker:filled_vase"
+            "item": "minecraft:potion",
+            "nbt": "{Potion:\"spirit-walker:spirit_walk\"}"
         },
         "title": {
-            "translate": "advancements.spirit-walker.make_empty_vase.title"
+            "translate": "advancements.spirit-walker.brew_spirit_walk.title"
         },
         "description": {
-            "translate": "advancements.spirit-walker.make_empty_vase.description"
+            "translate": "advancements.spirit-walker.brew_spirit_walk.description"
         },
-        "frame": "task",
+        "frame": "goal",
         "show_toast": true,
         "announce_to_chat": true,
         "hidden": false
     },
     "criteria": {
-        "empty_vase": {
+        "obtain_spirit_walk": {
             "conditions": {
                 "items": [
                     {
-                        "items": [
-                            "spirit-walker:empty_vase"
-                        ]
+                        "potion": "spirit-walker:spirit_walk"
                     }
                 ]
             },
@@ -31,7 +30,7 @@
     },
     "requirements": [
         [
-            "empty_vase"
+            "obtain_spirit_walk"
         ]
     ]
 }
