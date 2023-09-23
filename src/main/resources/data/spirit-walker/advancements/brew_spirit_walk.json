@@ -1,5 +1,5 @@
 {
-    "parent": "minecraft:story/enter_the_nether",
+    "parent": "minecraft:nether/brew_potion",
     "display": {
         "icon": {
             "item": "minecraft:potion",
@@ -11,7 +11,7 @@
         "description": {
             "translate": "advancements.spirit-walker.brew_spirit_walk.description"
         },
-        "frame": "goal",
+        "frame": "task",
         "show_toast": true,
         "announce_to_chat": true,
         "hidden": false
