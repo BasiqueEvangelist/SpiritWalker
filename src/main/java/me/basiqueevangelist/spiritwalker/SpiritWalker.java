@@ -14,6 +14,7 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -107,6 +108,8 @@ public class SpiritWalker implements ModInitializer {
 
             return TypedActionResult.pass(stack);
         });
+
+        ResourceConditions.register(id("leaky_bucket_enabled"), obj -> CONFIG.leakyBucket());
 
         if (CONFIG.enableDefaultRecipe()) {
             BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.WARPED_FUNGUS, POTION);

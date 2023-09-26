@@ -34,5 +34,7 @@
     "text.config.spirit-walker.option.disableSplashAndLingering": "Disable Splash And Lingering",
     "text.config.spirit-walker.option.disableSplashAndLingering.tooltip": "Disables the splash and lingering variants of the potions",
     "text.config.spirit-walker.option.listenFromBody": "Listen from Body",
-    "text.config.spirit-walker.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera"
+    "text.config.spirit-walker.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera",
+    "text.config.spirit-walker.option.leakyBucket": "Leaky Bucket",
+    "text.config.spirit-walker.option.leakyBucket.tooltip": "Enables Leaky Bucket recipes"
 }

@@ -1,4 +1,9 @@
 {
+    "fabric:load_conditions": [
+        {
+            "condition": "spirit-walker:leaky_bucket_enabled"
+        }
+    ],
     "type": "minecraft:crafting_shaped",
     "key": {
         "R": {
