@@ -1,24 +1,18 @@
 package me.basiqueevangelist.spiritwalker.criteria;
 
 import com.google.gson.JsonObject;
-import me.basiqueevangelist.spiritwalker.SpiritWalker;
 import net.minecraft.advancement.criterion.AbstractCriterion;
 import net.minecraft.advancement.criterion.AbstractCriterionConditions;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
 import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.Identifier;
+
+import java.util.Optional;
 
 public class DiedDuringSpiritWalkCriterion extends AbstractCriterion<DiedDuringSpiritWalkCriterion.Conditions> {
-    public static final Identifier ID = SpiritWalker.id("died_during_spirit_walk");
-
     @Override
-    public Identifier getId() {
-        return ID;
-    }
-
-    public DiedDuringSpiritWalkCriterion.Conditions conditionsFromJson(JsonObject jsonObject, LootContextPredicate playerPredicate, AdvancementEntityPredicateDeserializer predicateDeserializer) {
-        return new DiedDuringSpiritWalkCriterion.Conditions(ID, playerPredicate);
+    public DiedDuringSpiritWalkCriterion.Conditions conditionsFromJson(JsonObject jsonObject, Optional<LootContextPredicate> playerPredicate, AdvancementEntityPredicateDeserializer predicateDeserializer) {
+        return new DiedDuringSpiritWalkCriterion.Conditions(playerPredicate);
     }
 
     public void trigger(ServerPlayerEntity player) {
@@ -26,8 +20,9 @@ public class DiedDuringSpiritWalkCriterion extends AbstractCriterion<DiedDuringS
     }
 
     public static class Conditions extends AbstractCriterionConditions {
-        public Conditions(Identifier identifier, LootContextPredicate lootContextPredicate) {
-            super(identifier, lootContextPredicate);
+        @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
+        public Conditions(Optional<LootContextPredicate> lootContextPredicate) {
+            super(lootContextPredicate);
         }
     }
 }

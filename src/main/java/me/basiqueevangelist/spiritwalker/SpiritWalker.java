@@ -56,7 +56,7 @@ public class SpiritWalker implements ModInitializer {
         Registry.register(Registries.POTION, id("strong_spirit_walk"), STRONG_POTION);
         Registry.register(Registries.POTION, id("long_spirit_walk"), LONG_POTION);
 
-        Criteria.register(DIED_DURING_SPIRIT_WALK);
+        Criteria.register(id("died_during_spirit_walk").toString(), DIED_DURING_SPIRIT_WALK);
 
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
             if (!(entity instanceof ServerPlayerEntity player)) return;
