@@ -6,8 +6,13 @@
     "item.minecraft.lingering_potion.effect.spirit_walk": "スピリットウォークの残留ポーション",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "スピリットウォークの矢",
 
+    "advancements.spirit-walker.brew_spirit_walk.title": "ボトルの中の幽体離脱",
+    "advancements.spirit-walker.brew_spirit_walk.description": "スピリットウォークのポーションを醸造する",
+    "advancements.spirit-walker.die_while_spirit_walking.title": "不幸の重なり",
+    "advancements.spirit-walker.die_while_spirit_walking.description": "スピリットウォークの状態で力尽きる",
+
     "text.config.spirit-walker.title": "Spirit Walker の設定",
-    "text.config.spirit-walker.option.enableDefaultRecipe": "デフォルトレシピを有効化",
+    "text.config.spirit-walker.option.enableDefaultRecipe": "デフォルトレシピを有効化する",
     "text.config.spirit-walker.option.enableDefaultRecipe.tooltip": [
         "デフォルトのポーションレシピを有効化します。\n",
         "独自のレシピを使用したい場合は無効化して下さい"
@@ -22,6 +27,6 @@
     "text.config.spirit-walker.option.allowReturningImmediately.tooltip": "自分自身を攻撃することでスピリットウォークを終了できるようになる",
     "text.config.spirit-walker.option.disableSplashAndLingering": "スプラッシュと残留の無効化",
     "text.config.spirit-walker.option.disableSplashAndLingering.tooltip": "スプラッシュと残留のポーションタイプを無効化する",
-    "text.config.spirit-walker.option.listenFromBody": "体から聞く",
-    "text.config.spirit-walker.option.listenFromBody.tooltip": "音が残した本体から聞こえるようになる"
+    "text.config.spirit-walker.option.listenFromBody": "体から聴く",
+    "text.config.spirit-walker.option.listenFromBody.tooltip": "残した体から音が聞こえるようになる"
 }
