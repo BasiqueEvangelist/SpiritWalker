@@ -5,17 +5,11 @@
     "item.minecraft.splash_potion.effect.spirit_walk": "スピリットウォークのスプラッシュポーション",
     "item.minecraft.lingering_potion.effect.spirit_walk": "スピリットウォークの残留ポーション",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "スピリットウォークの矢",
-    "item.spirit-walker.empty_leaky_bucket": "空の穴あきバケツ",
-    "item.spirit-walker.filled_leaky_bucket": "穴あきバケツ",
 
     "advancements.spirit-walker.brew_spirit_walk.title": "ボトルの中の幽体離脱",
     "advancements.spirit-walker.brew_spirit_walk.description": "スピリットウォークのポーションを醸造する",
     "advancements.spirit-walker.die_while_spirit_walking.title": "不幸の重なり",
     "advancements.spirit-walker.die_while_spirit_walking.description": "スピリットウォークの状態で力尽きる",
-    "advancements.spirit-walker.saved_by_leaky_bucket.title": "物理学の難問",
-    "advancements.spirit-walker.saved_by_leaky_bucket.description": "穴あきバケツで転落事故から身を守る",
-
-    "category.spirit-walker.fill_leaky_bucket": "穴あきバケツに水を入れる",
 
     "text.config.spirit-walker.title": "Spirit Walker の設定",
     "text.config.spirit-walker.option.enableDefaultRecipe": "デフォルトレシピを有効化する",
@@ -35,6 +29,4 @@
     "text.config.spirit-walker.option.disableSplashAndLingering.tooltip": "スプラッシュと残留のポーションタイプを無効化する",
     "text.config.spirit-walker.option.listenFromBody": "体から聴く",
     "text.config.spirit-walker.option.listenFromBody.tooltip": "残した体から音が聞こえるようになる"
-    "text.config.spirit-walker.option.leakyBucket": "穴あきバケツ",
-    "text.config.spirit-walker.option.leakyBucket.tooltip": "穴あきバケツのレシピを有効化する"
 }
