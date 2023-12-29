@@ -6,6 +6,11 @@
     "item.minecraft.lingering_potion.effect.spirit_walk": "Lingering Potion of Spirit Walking",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "Arrow of Spirit Walking",
 
+    "advancements.spirit-walker.brew_spirit_walk.title": "Astral Projection In A Bottle",
+    "advancements.spirit-walker.brew_spirit_walk.description": "Brew a Spirit Walk potion",
+    "advancements.spirit-walker.die_while_spirit_walking.title": "An Unfortunate Series Of Events",
+    "advancements.spirit-walker.die_while_spirit_walking.description": "Die while spirit walking, unable to defend yourself",
+
     "text.config.spirit-walker.title": "Spirit Walker Config",
     "text.config.spirit-walker.option.enableDefaultRecipe": "Enable Default Recipe",
     "text.config.spirit-walker.option.enableDefaultRecipe.tooltip": [

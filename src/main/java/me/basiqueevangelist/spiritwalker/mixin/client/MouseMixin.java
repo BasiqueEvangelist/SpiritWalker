@@ -24,8 +24,8 @@ public class MouseMixin {
         return orig;
     }
 
-    @WrapWithCondition(method = "onMouseScroll", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;scrollInHotbar(D)V"))
-    private boolean mald(PlayerInventory instance, double scrollAmount) {
-        return !(client.getCameraEntity() instanceof FakeCameraEntity);
-    }
+//    @WrapWithCondition(method = "onMouseScroll", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;scrollInHotbar(D)V"))
+//    private boolean mald(PlayerInventory instance, double scrollAmount) {
+//        return !(client.getCameraEntity() instanceof FakeCameraEntity);
+//    }
 }

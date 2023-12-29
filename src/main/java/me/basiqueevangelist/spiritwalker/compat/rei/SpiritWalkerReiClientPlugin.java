@@ -12,12 +12,13 @@ import net.minecraft.potion.PotionUtil;
 public class SpiritWalkerReiClientPlugin implements REIClientPlugin {
     @Override
     public void registerDisplays(DisplayRegistry registry) {
-
         registry.registerVisibilityPredicate((category, display) -> {
             if (!SpiritWalker.CONFIG.disableSplashAndLingering()) return EventResult.pass();
             if (!category.getCategoryIdentifier().equals(BuiltinPlugin.BREWING)) return EventResult.pass();
 
-            BrewingRecipe recipe = (BrewingRecipe) registry.getDisplayOrigin(display);
+            if (!(registry.getDisplayOrigin(display) instanceof BrewingRecipe recipe))
+                return EventResult.pass();
+
             if (SpiritWalker.POTIONS.contains(PotionUtil.getPotion(recipe.output))
              && recipe.output.getItem() != Items.POTION)
                 return EventResult.interruptFalse();

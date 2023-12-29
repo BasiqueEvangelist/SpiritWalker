@@ -1,0 +1,36 @@
+{
+    "parent": "minecraft:nether/brew_potion",
+    "display": {
+        "icon": {
+            "item": "minecraft:potion",
+            "nbt": "{Potion:\"spirit-walker:spirit_walk\"}"
+        },
+        "title": {
+            "translate": "advancements.spirit-walker.brew_spirit_walk.title"
+        },
+        "description": {
+            "translate": "advancements.spirit-walker.brew_spirit_walk.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "obtain_spirit_walk": {
+            "conditions": {
+                "items": [
+                    {
+                        "potion": "spirit-walker:spirit_walk"
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "obtain_spirit_walk"
+        ]
+    ]
+}
