@@ -5,17 +5,11 @@
     "item.minecraft.splash_potion.effect.spirit_walk": "Splash Potion of Spirit Walking",
     "item.minecraft.lingering_potion.effect.spirit_walk": "Lingering Potion of Spirit Walking",
     "item.minecraft.tipped_arrow.effect.spirit_walk": "Arrow of Spirit Walking",
-    "item.spirit-walker.empty_leaky_bucket": "Empty Leaky Bucket",
-    "item.spirit-walker.filled_leaky_bucket": "Leaky Bucket",
 
     "advancements.spirit-walker.brew_spirit_walk.title": "Astral Projection In A Bottle",
     "advancements.spirit-walker.brew_spirit_walk.description": "Brew a Spirit Walk potion",
     "advancements.spirit-walker.die_while_spirit_walking.title": "An Unfortunate Series Of Events",
     "advancements.spirit-walker.die_while_spirit_walking.description": "Die while spirit walking, unable to defend yourself",
-    "advancements.spirit-walker.saved_by_leaky_bucket.title": "Physics Conundrum",
-    "advancements.spirit-walker.saved_by_leaky_bucket.description": "Save yourself from a deadly fall with a Leaky Bucket",
-
-    "category.spirit-walker.fill_leaky_bucket": "Filling Leaky Bucket",
 
     "text.config.spirit-walker.title": "Spirit Walker Config",
     "text.config.spirit-walker.option.enableDefaultRecipe": "Enable Default Recipe",
@@ -34,7 +28,5 @@
     "text.config.spirit-walker.option.disableSplashAndLingering": "Disable Splash And Lingering",
     "text.config.spirit-walker.option.disableSplashAndLingering.tooltip": "Disables the splash and lingering variants of the potions",
     "text.config.spirit-walker.option.listenFromBody": "Listen from Body",
-    "text.config.spirit-walker.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera",
-    "text.config.spirit-walker.option.leakyBucket": "Leaky Bucket",
-    "text.config.spirit-walker.option.leakyBucket.tooltip": "Enables Leaky Bucket recipes"
+    "text.config.spirit-walker.option.listenFromBody.tooltip": "Sounds will be heard from the body, not the camera"
 }

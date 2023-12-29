@@ -14,5 +14,4 @@ public class SpiritWalkerConfigModel {
     public boolean allowReturningImmediately = false;
     public boolean disableSplashAndLingering = true;
     public boolean listenFromBody = false;
-    public boolean leakyBucket = true;
 }

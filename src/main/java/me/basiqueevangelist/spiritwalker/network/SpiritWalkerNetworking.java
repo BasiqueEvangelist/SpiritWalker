@@ -16,6 +16,5 @@ public final class SpiritWalkerNetworking {
 
             access.player().removeStatusEffect(SpiritWalker.EFFECT);
         });
-        CHANNEL.registerClientboundDeferred(BreakItemS2CPacket.class);
     }
 }

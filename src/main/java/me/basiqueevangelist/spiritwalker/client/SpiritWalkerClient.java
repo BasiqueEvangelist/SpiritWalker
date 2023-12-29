@@ -1,15 +1,10 @@
 package me.basiqueevangelist.spiritwalker.client;
 
-import me.basiqueevangelist.spiritwalker.SpiritWalker;
-import me.basiqueevangelist.spiritwalker.duck.LivingEntityAccess;
 import me.basiqueevangelist.spiritwalker.mixin.client.WorldRendererAccessor;
-import me.basiqueevangelist.spiritwalker.network.BreakItemS2CPacket;
-import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
@@ -18,7 +13,6 @@ import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.Text;
 import org.jetbrains.annotations.ApiStatus;
 
 @Environment(EnvType.CLIENT)
@@ -61,14 +55,6 @@ public class SpiritWalkerClient implements ClientModInitializer {
     @SuppressWarnings({"resource", "DataFlowIssue"})
     @Override
     public void onInitializeClient() {
-        SpiritWalkerNetworking.CHANNEL.registerClientbound(BreakItemS2CPacket.class, (message, access) -> {
-            var entity = access.player().getWorld().getEntityById(message.entityId());
-
-            if (!(entity instanceof LivingEntity living)) return;
-
-            ((LivingEntityAccess) living).callSpawnItemParticles(message.brokenStack(), 5);
-        });
-
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.isPaused()) return;
             if (!(client.cameraEntity instanceof FakeCameraEntity camera)) return;

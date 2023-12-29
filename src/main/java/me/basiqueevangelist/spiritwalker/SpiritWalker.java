@@ -3,8 +3,6 @@ package me.basiqueevangelist.spiritwalker;
 import me.basiqueevangelist.spiritwalker.client.SpiritWalkerClient;
 import me.basiqueevangelist.spiritwalker.config.SpiritWalkerConfig;
 import me.basiqueevangelist.spiritwalker.criteria.DiedDuringSpiritWalkCriterion;
-import me.basiqueevangelist.spiritwalker.criteria.SavedFromFallDeathCriterion;
-import me.basiqueevangelist.spiritwalker.item.EmptyLeakyBucketItem;
 import me.basiqueevangelist.spiritwalker.network.SpiritWalkerNetworking;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
@@ -12,16 +10,11 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
@@ -54,10 +47,6 @@ public class SpiritWalker implements ModInitializer {
         STRONG_POTION
     );
 
-    public static final EmptyLeakyBucketItem EMPTY_LEAKY_BUCKET = new EmptyLeakyBucketItem();
-    public static final Item FILLED_LEAKY_BUCKET = new Item(new FabricItemSettings().maxCount(1));
-
-    public static final SavedFromFallDeathCriterion SAVED_FROM_FALL_DEATH = new SavedFromFallDeathCriterion();
     public static final DiedDuringSpiritWalkCriterion DIED_DURING_SPIRIT_WALK = new DiedDuringSpiritWalkCriterion();
 
     @Override
@@ -66,10 +55,7 @@ public class SpiritWalker implements ModInitializer {
         Registry.register(Registries.POTION, id("spirit_walk"), POTION);
         Registry.register(Registries.POTION, id("strong_spirit_walk"), STRONG_POTION);
         Registry.register(Registries.POTION, id("long_spirit_walk"), LONG_POTION);
-        Registry.register(Registries.ITEM, id("empty_leaky_bucket"), EMPTY_LEAKY_BUCKET);
-        Registry.register(Registries.ITEM, id("filled_leaky_bucket"), FILLED_LEAKY_BUCKET);
 
-        Criteria.register(SAVED_FROM_FALL_DEATH);
         Criteria.register(DIED_DURING_SPIRIT_WALK);
 
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
@@ -80,11 +66,6 @@ public class SpiritWalker implements ModInitializer {
         });
 
         SpiritWalkerNetworking.init();
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
-            entries.add(EMPTY_LEAKY_BUCKET);
-            entries.add(FILLED_LEAKY_BUCKET);
-        });
 
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             if (isInSpiritWalk(player))
@@ -108,8 +89,6 @@ public class SpiritWalker implements ModInitializer {
 
             return TypedActionResult.pass(stack);
         });
-
-        ResourceConditions.register(id("leaky_bucket_enabled"), obj -> CONFIG.leakyBucket());
 
         if (CONFIG.enableDefaultRecipe()) {
             BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.WARPED_FUNGUS, POTION);
