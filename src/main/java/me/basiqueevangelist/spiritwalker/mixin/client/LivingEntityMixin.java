@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -28,8 +29,8 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     @Inject(method = "removeStatusEffectInternal", at = @At("HEAD"))
-    private void based(StatusEffect type, CallbackInfoReturnable<StatusEffectInstance> cir) {
-        if (type == SpiritWalker.EFFECT && getWorld().isClient) {
+    private void based(RegistryEntry<StatusEffect> effect, CallbackInfoReturnable<StatusEffectInstance> cir) {
+        if (effect == SpiritWalker.EFFECT && getWorld().isClient) {
             SpiritWalkerClient.leaveSpiritWalk((LivingEntity)(Object) this);
         }
     }

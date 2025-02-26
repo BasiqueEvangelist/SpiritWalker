@@ -10,8 +10,11 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+import net.fabricmc.fabric.mixin.content.registry.BrewingRecipeRegistryBuilderMixin;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,6 +25,7 @@ import net.minecraft.potion.Potions;
 import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
@@ -33,15 +37,29 @@ public class SpiritWalker implements ModInitializer {
     public static final String MOD_ID = "spirit-walker";
     public static final SpiritWalkerConfig CONFIG = SpiritWalkerConfig.createAndLoad();
 
-    public static final CustomStatusEffect EFFECT
-        = new CustomStatusEffect(StatusEffectCategory.BENEFICIAL, 0xA020F0);
-    public static final Potion POTION = new Potion(
-        new StatusEffectInstance(EFFECT, 20 * CONFIG.normalPotionLength()));
-    public static final Potion STRONG_POTION = new Potion("spirit_walk",
-        new StatusEffectInstance(EFFECT, 20 * CONFIG.strongPotionLength(), 1));
-    public static final Potion LONG_POTION = new Potion("spirit_walk",
-        new StatusEffectInstance(EFFECT, 20 * CONFIG.longPotionLength()));
-    public final static List<Potion> POTIONS = List.of(
+    public static final RegistryEntry.Reference<StatusEffect> EFFECT
+        = Registry.registerReference(
+            Registries.STATUS_EFFECT,
+            id("spirit_walk"),
+            new CustomStatusEffect(StatusEffectCategory.BENEFICIAL, 0xA020F0)
+        );
+    public static final RegistryEntry.Reference<Potion> POTION
+        = Registry.registerReference(
+            Registries.POTION,
+            id("spirit_walk"),
+            new Potion(new StatusEffectInstance(EFFECT, 20 * CONFIG.normalPotionLength()))
+        );
+    public static final RegistryEntry.Reference<Potion> STRONG_POTION = Registry.registerReference(
+        Registries.POTION,
+        id("strong_spirit_walk"),
+        new Potion("spirit_walk", new StatusEffectInstance(EFFECT, 20 * CONFIG.strongPotionLength(), 1))
+    );
+    public static final RegistryEntry.Reference<Potion> LONG_POTION = Registry.registerReference(
+        Registries.POTION,
+        id("long_spirit_walk"),
+        new Potion("spirit_walk", new StatusEffectInstance(EFFECT, 20 * CONFIG.longPotionLength()))
+    );
+    public final static List<RegistryEntry.Reference<Potion>> POTIONS = List.of(
         POTION,
         LONG_POTION,
         STRONG_POTION
@@ -51,11 +69,6 @@ public class SpiritWalker implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registries.STATUS_EFFECT, id("spirit_walk"), EFFECT);
-        Registry.register(Registries.POTION, id("spirit_walk"), POTION);
-        Registry.register(Registries.POTION, id("strong_spirit_walk"), STRONG_POTION);
-        Registry.register(Registries.POTION, id("long_spirit_walk"), LONG_POTION);
-
         Criteria.register(id("died_during_spirit_walk").toString(), DIED_DURING_SPIRIT_WALK);
 
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
@@ -91,9 +104,11 @@ public class SpiritWalker implements ModInitializer {
         });
 
         if (CONFIG.enableDefaultRecipe()) {
-            BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, Items.WARPED_FUNGUS, POTION);
-            BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.REDSTONE, LONG_POTION);
-            BrewingRecipeRegistry.registerPotionRecipe(POTION, Items.GLOWSTONE_DUST, STRONG_POTION);
+            FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+                builder.registerPotionRecipe(Potions.AWKWARD, Items.WARPED_FUNGUS, POTION);
+                builder.registerPotionRecipe(POTION, Items.REDSTONE, LONG_POTION);
+                builder.registerPotionRecipe(POTION, Items.GLOWSTONE_DUST, STRONG_POTION);
+            });
         }
     }
 
@@ -106,6 +121,6 @@ public class SpiritWalker implements ModInitializer {
     }
 
     public static Identifier id(String path) {
-        return new Identifier(MOD_ID, path);
+        return Identifier.of(MOD_ID, path);
     }
 }

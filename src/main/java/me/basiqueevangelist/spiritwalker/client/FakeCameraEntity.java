@@ -5,7 +5,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.recipebook.ClientRecipeBook;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.scoreboard.AbstractTeam;
+import net.minecraft.scoreboard.Team;
 import net.minecraft.stat.StatHandler;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,7 +32,7 @@ public class FakeCameraEntity extends ClientPlayerEntity {
 
     @Nullable
     @Override
-    public AbstractTeam getScoreboardTeam() {
+    public Team getScoreboardTeam() {
         return null;
     }
 

@@ -99,7 +99,7 @@ public class SpiritWalkerClient implements ClientModInitializer {
                     context.camera().getPos().x,
                     context.camera().getPos().y,
                     context.camera().getPos().z,
-                    context.tickDelta(),
+                    context.tickCounter().getTickDelta(false),
                     context.matrixStack(),
                     context.consumers()
                 );
