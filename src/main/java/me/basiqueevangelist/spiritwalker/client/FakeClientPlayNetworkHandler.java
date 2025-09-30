@@ -1,19 +1,19 @@
 package me.basiqueevangelist.spiritwalker.client;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientConnectionState;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.network.NetworkSide;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientPacketListener;
+import net.minecraft.client.multiplayer.CommonListenerCookie;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.world.flag.FeatureFlagSet;
 
-public class FakeClientPlayNetworkHandler extends ClientPlayNetworkHandler {
-    public FakeClientPlayNetworkHandler(MinecraftClient client) {
-        super(client, new FakeClientConnection(NetworkSide.CLIENTBOUND), new ClientConnectionState(client.getGameProfile(), null, null, FeatureSet.empty(), null, null, null, null, null, false, null, null));
+public class FakeClientPlayNetworkHandler extends ClientPacketListener {
+    public FakeClientPlayNetworkHandler(Minecraft client) {
+        super(client, new FakeClientConnection(PacketFlow.CLIENTBOUND), new CommonListenerCookie(client.getGameProfile(), null, null, FeatureFlagSet.of(), null, null, null, null, null, false, null, null));
     }
 
     @Override
-    public void sendPacket(Packet<?> packet) {
+    public void send(Packet<?> packet) {
 
     }
 }

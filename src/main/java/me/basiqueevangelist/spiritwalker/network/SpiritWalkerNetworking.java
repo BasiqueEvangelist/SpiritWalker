@@ -14,7 +14,7 @@ public final class SpiritWalkerNetworking {
         CHANNEL.registerServerbound(StopSpiritWalkC2SPacket.class, (message, access) -> {
             if (!SpiritWalker.CONFIG.allowReturningImmediately()) return;
 
-            access.player().removeStatusEffect(SpiritWalker.EFFECT);
+            access.player().removeEffect(SpiritWalker.EFFECT);
         });
     }
 }

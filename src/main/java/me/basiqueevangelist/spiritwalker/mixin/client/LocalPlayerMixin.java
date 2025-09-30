@@ -2,19 +2,19 @@ package me.basiqueevangelist.spiritwalker.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import me.basiqueevangelist.spiritwalker.client.FakeCameraEntity;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(ClientPlayerEntity.class)
-public abstract class ClientPlayerEntityMixin {
-    @Shadow @Final protected MinecraftClient client;
+@Mixin(LocalPlayer.class)
+public abstract class LocalPlayerMixin {
+    @Shadow @Final protected Minecraft minecraft;
 
     @SuppressWarnings("ConstantConditions")
-    @ModifyExpressionValue(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerInteractionManager;isFlyingLocked()Z"))
+    @ModifyExpressionValue(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/MultiPlayerGameMode;isAlwaysFlying()Z"))
     private boolean lockFlyingForCamera(boolean orig) {
         if ((Object) this instanceof FakeCameraEntity)
             return true;
@@ -22,9 +22,9 @@ public abstract class ClientPlayerEntityMixin {
         return orig;
     }
 
-    @ModifyExpressionValue(method = "sendMovementPackets", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isCamera()Z"))
+    @ModifyExpressionValue(method = "sendPosition", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isControlledCamera()Z"))
     private boolean sendMovementPackets(boolean orig) {
-        if (client.getCameraEntity() instanceof FakeCameraEntity)
+        if (minecraft.getCameraEntity() instanceof FakeCameraEntity)
             return true;
 
         return orig;
@@ -32,10 +32,10 @@ public abstract class ClientPlayerEntityMixin {
 
     @SuppressWarnings("ConstantValue")
     @ModifyExpressionValue(
-        method = "tickMovement",
+        method = "aiStep",
         at = {
-            @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isTouchingWater()Z"),
-            @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isSubmergedInWater()Z")
+            @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isInWater()Z"),
+            @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isUnderWater()Z")
         }
     )
     private boolean forceNotInWater(boolean orig) {

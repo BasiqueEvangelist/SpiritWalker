@@ -1,10 +1,10 @@
 package me.basiqueevangelist.spiritwalker.client;
 
-import net.minecraft.network.ClientConnection;
-import net.minecraft.network.NetworkSide;
+import net.minecraft.network.Connection;
+import net.minecraft.network.protocol.PacketFlow;
 
-public class FakeClientConnection extends ClientConnection {
-    public FakeClientConnection(NetworkSide side) {
+public class FakeClientConnection extends Connection {
+    public FakeClientConnection(PacketFlow side) {
         super(side);
     }
 }

@@ -1,10 +1,10 @@
 package me.basiqueevangelist.spiritwalker;
 
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
 
-public class CustomStatusEffect extends StatusEffect {
-    public CustomStatusEffect(StatusEffectCategory statusEffectCategory, int color) {
+public class CustomStatusEffect extends MobEffect {
+    public CustomStatusEffect(MobEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
 }

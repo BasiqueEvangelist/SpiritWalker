@@ -2,26 +2,26 @@ package me.basiqueevangelist.spiritwalker.criteria;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.advancement.criterion.AbstractCriterion;
-import net.minecraft.predicate.entity.EntityPredicate;
-import net.minecraft.predicate.entity.LootContextPredicate;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.advancements.critereon.ContextAwarePredicate;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
+import net.minecraft.server.level.ServerPlayer;
 
 import java.util.Optional;
 
-public class DiedDuringSpiritWalkCriterion extends AbstractCriterion<DiedDuringSpiritWalkCriterion.Conditions> {
+public class DiedDuringSpiritWalkCriterion extends SimpleCriterionTrigger<DiedDuringSpiritWalkCriterion.Conditions> {
     @Override
-    public Codec<Conditions> getConditionsCodec() {
+    public Codec<Conditions> codec() {
         return Conditions.CODEC;
     }
 
-    public void trigger(ServerPlayerEntity player) {
+    public void trigger(ServerPlayer player) {
         this.trigger(player, conditions -> true);
     }
 
-    public record Conditions(Optional<LootContextPredicate> player) implements AbstractCriterion.Conditions {
+    public record Conditions(Optional<ContextAwarePredicate> player) implements SimpleCriterionTrigger.SimpleInstance {
         public static final Codec<Conditions> CODEC = RecordCodecBuilder.create(
-            instance -> instance.group(EntityPredicate.LOOT_CONTEXT_PREDICATE_CODEC.optionalFieldOf("player").forGetter(Conditions::player))
+            instance -> instance.group(EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(Conditions::player))
                 .apply(instance, Conditions::new)
         );
     }

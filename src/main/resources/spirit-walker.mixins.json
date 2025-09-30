@@ -9,18 +9,18 @@
         "ScreenHandlerMixin"
     ],
     "client": [
-        "client.ClientPlayerEntityMixin",
+        "client.LocalPlayerMixin",
         "client.EntityMixin",
         "client.GameRendererMixin",
-        "client.InGameHudMixin",
+        "client.GuiMixin",
         "client.LivingEntityMixin",
-        "client.MinecraftClientMixin",
-        "client.MouseMixin",
-        "client.PlayerEntityMixin",
-        "client.PlayerEntityRendererMixin",
-        "client.SoundSystemMixin",
-        "client.WorldRendererAccessor",
-        "client.WorldRendererMixin"
+        "client.MinecraftMixin",
+        "client.MouseHandlerMixin",
+        "client.PlayerMixin",
+        "client.PlayerRendererMixin",
+        "client.SoundEngineMixin",
+        "client.LevelRendererAccessor",
+        "client.LevelRendererMixin"
     ],
     "injectors": {
         "defaultRequire": 1

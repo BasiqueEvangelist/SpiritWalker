@@ -1,28 +1,28 @@
 package me.basiqueevangelist.spiritwalker.client;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.recipebook.ClientRecipeBook;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.scoreboard.Team;
-import net.minecraft.stat.StatHandler;
+import net.minecraft.client.ClientRecipeBook;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.stats.StatsCounter;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.scores.PlayerTeam;
 import org.jetbrains.annotations.Nullable;
 
-public class FakeCameraEntity extends ClientPlayerEntity {
+public class FakeCameraEntity extends LocalPlayer {
     public boolean canNoClip = false;
 
-    public FakeCameraEntity(MinecraftClient client, ClientWorld world) {
-        super(client, world, new FakeClientPlayNetworkHandler(client), new StatHandler(), new ClientRecipeBook(), false, false);
+    public FakeCameraEntity(Minecraft client, ClientLevel world) {
+        super(client, world, new FakeClientPlayNetworkHandler(client), new StatsCounter(), new ClientRecipeBook(), false, false);
 
         getAbilities().flying = true;
-        getAbilities().allowFlying = true;
+        getAbilities().mayfly = true;
         setInvisible(true);
     }
 
     @Override
-    public boolean isInvisibleTo(PlayerEntity player) {
-        return player != client.player;
+    public boolean isInvisibleTo(Player player) {
+        return player != minecraft.player;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class FakeCameraEntity extends ClientPlayerEntity {
 
     @Nullable
     @Override
-    public Team getScoreboardTeam() {
+    public PlayerTeam getTeam() {
         return null;
     }
 
