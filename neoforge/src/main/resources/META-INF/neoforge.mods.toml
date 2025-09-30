@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "LGPL-3.0-only"
+issueTrackerURL="https://github.com/BasiqueEvangelist/SpiritWalker/issues"
+
+[[mods]]
+modId = "spirit_walker"
+version = "${version}"
+displayName = "Spirit Walker"
+updateJSONURL="https://api.modrinth.com/updates/spirit-walker/forge_updates.json?neoforge=only"
+displayURL="https://modrinth.com/mod/spirit-walker"
+logoFile="spirit-walker.png"
+credits="masa, Pois1x"
+authors = "BasiqueEvangelist"
+description = '''Freecam in a bottle'''
+
+[[mixins]]
+config = "spirit-walker.mixins.json"
+
+[[dependencies.spirit_walker]]
+modId = "neoforge"
+type="required"
+versionRange = "[${neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.spirit_walker]]
+modId = "minecraft"
+type="required"
+versionRange = "[1.21.1, 1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.spirit_walker]]
+modId = "owo"
+type="required"
+versionRange = "[0.9.0,)"
+ordering = "NONE"
+side = "BOTH"
