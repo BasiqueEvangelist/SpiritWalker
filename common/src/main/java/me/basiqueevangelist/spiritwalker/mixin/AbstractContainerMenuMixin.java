@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractContainerMenu.class)
-public class ScreenHandlerMixin {
+public class AbstractContainerMenuMixin {
     @Inject(method = "doClick", at = @At("HEAD"), cancellable = true)
     private void blockOnSpiritWalk(int slotIndex, int button, ClickType actionType, Player player, CallbackInfo ci) {
         if (SpiritWalker.isInSpiritWalk(player))

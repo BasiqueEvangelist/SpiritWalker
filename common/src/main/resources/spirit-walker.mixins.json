@@ -4,9 +4,9 @@
     "package": "me.basiqueevangelist.spiritwalker.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
-        "BrewingRecipeRegistryMixin",
-        "MobEntityMixin",
-        "ScreenHandlerMixin"
+        "PotionBrewingMixin",
+        "MobMixin",
+        "AbstractContainerMenuMixin"
     ],
     "client": [
         "client.LocalPlayerMixin",

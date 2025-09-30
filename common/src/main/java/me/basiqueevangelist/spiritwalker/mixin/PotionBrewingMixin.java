@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Mixin(PotionBrewing.class)
-public class BrewingRecipeRegistryMixin {
+public class PotionBrewingMixin {
     @Inject(method = "hasContainerMix", at = @At("HEAD"), cancellable = true)
     private void mald(ItemStack input, ItemStack ingredient, CallbackInfoReturnable<Boolean> cir) {
         if (!SpiritWalker.CONFIG.disableSplashAndLingering()) return;
