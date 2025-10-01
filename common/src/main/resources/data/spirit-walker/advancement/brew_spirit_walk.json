@@ -2,8 +2,13 @@
     "parent": "minecraft:nether/brew_potion",
     "display": {
         "icon": {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"spirit-walker:spirit_walk\"}"
+            "id": "minecraft:potion",
+            "nbt": "{Potion:\"spirit-walker:spirit_walk\"}",
+            "components": {
+                "minecraft:potion_contents": {
+                    "potion": "spirit-walker:spirit_walk"
+                }
+            }
         },
         "title": {
             "translate": "advancements.spirit-walker.brew_spirit_walk.title"

@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "Spirit Walker"
 updateJSONURL="https://api.modrinth.com/updates/spirit-walker/forge_updates.json?neoforge=only"
 displayURL="https://modrinth.com/mod/spirit-walker"
-logoFile="spirit-walker.png"
+logoFile="icon.png"
 credits="masa, Pois1x"
 authors = "BasiqueEvangelist"
 description = '''Freecam in a bottle'''

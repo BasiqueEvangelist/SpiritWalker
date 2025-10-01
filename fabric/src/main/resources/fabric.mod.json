@@ -13,7 +13,7 @@
         "issues": "https://github.com/BasiqueEvangelist/SpiritWalker/issues"
     },
     "license": "LGPL-3.0-only",
-    "icon": "assets/spirit-walker/icon.png",
+    "icon": "icon.png",
     "environment": "*",
     "entrypoints": {
         "client": [
